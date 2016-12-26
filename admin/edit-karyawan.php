@@ -209,7 +209,7 @@ $_SESSION['start_time'] = time();
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gender</label>
-                              <div class="col-sm-10">
+                              <div class="col-sm-3">
                                 <select name="gender" id="gender" placeholder="Gender" class="form-control" required>
                                   <option value="0">Laki Laki</option>
                                   <option value="1">Perempuan</option>
