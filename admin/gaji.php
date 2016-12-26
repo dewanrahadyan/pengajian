@@ -116,7 +116,7 @@ $_SESSION['start_time'] = time();
               <div class="col-lg-4">
               <form action='gaji.php' method="POST">
           
-	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qcari' placeholder='Cari berdasarkan Nama & Gaji Bulan' required /> 
+	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qcari' placeholder='Cari berdasarkan Nama & NIK' required /> 
           
            <select name="qDepartemen" class="form-control" style="margin-bottom: 4px;">
               <option value=""> -- Pilih Departement -- </option>
@@ -133,6 +133,13 @@ $_SESSION['start_time'] = time();
               <option value="Marketing">Marketing</option>
               <option value="Lainnya">Lainnya</option>
             </select>
+
+            
+                              <!--label class="col-sm-2 col-sm-2 control-label">Tanggal Transfer</label-->
+                              
+                                  <input name="tgl_transfer" id="tgl_transfer" class="input-group date form-control" data-date="" data-date-format="yyyy-mm-dd" type="text" placeholder="Tanggal Transfer" required />
+                              
+            
 
 
             
@@ -232,6 +239,18 @@ $_SESSION['start_time'] = time();
         <script src="../dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../js/jquery-ui.core.js" type="text/javascript"></script>
         
+        <!-- daterangepicker -->
+        <script src="../js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <!-- datepicker -->
+        <script src="../js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+
+          <script>
+    //options method for call datepicker
+    $(".input-group.date").datepicker({ autoclose: true, todayHighlight: true });
+    
+    </script>
+
+
         <!-- Morris.js charts -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="../js/plugins/morris/morris.min.js" type="text/javascript"></script>

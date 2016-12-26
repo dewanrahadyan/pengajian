@@ -230,7 +230,9 @@ $_SESSION['start_time'] = time();
                                 <div class="col-sm-3">
                                   <select name="departemen" class="form-control" required>
                                     <option value=""> -- Pilih Departement -- </option>
-                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Warehouse"<?=$row['departemen'] == 'Warehouse' ? ' selected="selected"' : '';?>>Warehouse</option>
+
+                                    
                                     <option value="Purchasing">Purchasing</option>
                                     <option value="Accounting">Accounting</option>
                                     <option value="IT">IT</option>
