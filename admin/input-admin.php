@@ -106,60 +106,68 @@ $_SESSION['start_time'] = time();
                         <div class="panel-body">
                   <div class="form-panel">
                       <form class="form-horizontal style-form" action="insert-admin.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">User ID</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="user_id" type="text" id="user_id" class="form-control" placeholder="Tidak perlu di isi" autofocus="on" readonly="readonly" />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Username</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="username" type="text" id="username" class="form-control" placeholder="Username" autocomplete="off" required />
                                   <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="password" type="text" id="password" class="form-control" placeholder="password" autocomplete="off" required />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Fullname</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="fullname" class="form-control" id="fullname" type="text" placeholder="Fullname" autocomplete="off" required />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">No Handphone</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="no_hp" class="form-control" id="no_hp" type="text" placeholder="No Handphone" autocomplete="off" required />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Level</label>
-                              <div class="col-sm-3">
-                            <select name="level" class="form-control" required>
-							<option value=""> -- Pilih Level Pengguna -- </option>
-							<option value="admin">Admin</option>
-							<option value="superuser">Superuser</option>
-                            <option value="user">User</option>
-						    </select>
-                              </div>
+                                <div class="col-sm-3">
+                                  <select name="level" class="form-control" required>
+                      							<option value=""> -- Pilih Level Pengguna -- </option>
+                      							<option value="admin">Admin</option>
+                      							<option value="superuser">Superuser</option>
+                                    <option value="user">User</option>
+						                      </select>
+                                </div>
                           </div>
+                         
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gambar</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-10">
                                   <input name="nama_file" id="nama_file" type="file" />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"></label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-10">
                                   <input type="submit" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
-	                              <a href="input-admin.php" class="btn btn-sm btn-danger">Batal </a>
-                              </div>
+	                                   <a href="input-admin.php" class="btn btn-sm btn-danger">Batal </a>
+                                  </div>
                           </div>
                       </form>
                   </div>

@@ -156,58 +156,66 @@ $_SESSION['start_time'] = time();
                         <div class="panel-body">
                   <div class="form-panel">
                       <form class="form-horizontal style-form" action="update-admin.php" method="post" name="form1" id="form1">
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">User ID</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="user_id" type="text" id="user_id" class="form-control" value="<?php echo $data['user_id'];?>" readonly="readonly" autofocus="on" />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Username</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="username" type="text" id="username" class="form-control" value="<?php echo $data['username'];?>" required />
                                   <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
-                              </div>
+                                </div>
                           </div>
+                         
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="password" type="text" id="password" class="form-control" value="<?php echo $data['password'];?>" required />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Fullname</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="fullname" class="form-control" id="fullname" type="text" value="<?php echo $data['fullname'];?>" required />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">No Handphone</label>
-                              <div class="col-sm-10">
+                                <div class="col-sm-3">
                                   <input name="no_hp" class="form-control" id="no_hp" type="text" value="<?php echo $data['no_hp'];?>" required />
-                              </div>
+                                </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Level</label>
-                              <div class="col-sm-3">
-                            <select name="level" class="form-control" required>
-							<option value=""> -- Pilih Level -- </option>
-							<option value="admin">Admin</option>
-							<option value="superuser">Superuser</option>
-                            <option value="user">User</option>
-						    </select>
-                              </div>
-                              <label class="col-sm-3 col-sm-3 control-label">Level Sebelumnya : </label>
+                                <div class="col-sm-3">
+                                  <select name="level" class="form-control" required>
+                      							<option value=""> -- Pilih Level -- </option>
+                                    <option value="admin"<?=$data['level'] == 'admin' ? ' selected="selected"' : '';?>>Admin</option>
+                                    <option value="superuser"<?=$data['level'] == 'superuser' ? ' selected="selected"' : '';?>>Superuser</option>
+                                    <option value="user"<?=$data['level'] == 'user' ? ' selected="selected"' : '';?>>User</option>
+      						                </select>
+                                </div>
+                              <!-- <label class="col-sm-3 col-sm-3 control-label">Level Sebelumnya : </label>
                               <div class="col-sm-3">
                               <span class="label label-primary"><?php echo $data['level'];  ?></span>
-                              </div>
+                              </div> -->
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gambar</label>
-                              <div class="col-sm-10">
-                                  <img src="<?php echo $data['gambar'];?>" width="200" height="250" class="img-rounded" style="border: 3px solid #888;"/>
+                                <div class="col-sm-10">
+                                  <img src="<?php echo $data['gambar'];?>" width="245" height="285" class="img-rounded" style="border: 3px solid #888;"/>
                               </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"></label>
                               <div class="col-sm-10">

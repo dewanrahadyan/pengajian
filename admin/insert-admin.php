@@ -22,8 +22,11 @@ if (!empty($_FILES["nama_file"]["tmp_name"]))
 			$sql="INSERT INTO user(user_id,username,password,fullname,no_hp,level,gambar) VALUES
             ('$user_id','$username','$password','$fullname','$no_hp','$level','$gambar')";
 			$res=mysqli_query($koneksi, $sql) or die (mysqli_error());
-			echo "Gambar berhasil dikirim ke direktori".$gambar;
-            echo "<h3><a href='input-admin.php'> Input Lagi</a></h3>";	   
+			
+			echo"<script>alert('Data Berhasil Ditambah')</script>";
+			echo"<script>location.href='admin.php'</script>";
+			//echo "Gambar berhasil dikirim ke direktori".$gambar;
+            //echo "<h3><a href='insert-admin.php'> Input Lagi</a></h3>";	   
 		} else {
 		   echo "<p>Gambar gagal dikirim</p>";
 		}
