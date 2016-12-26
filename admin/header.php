@@ -1,5 +1,5 @@
 <header class="header">
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                <img src="../img/logo.png" style="margin-top:5px">
             </a>
