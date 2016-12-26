@@ -148,13 +148,19 @@ $_SESSION['start_time'] = time();
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['update'])){
-				$nik	 = $_POST['nik'];
-				$nama	 = $_POST['nama'];
-				$alamat	 = $_POST['alamat'];
-				$no_hp	 = $_POST['no_hp'];
-				$status	 = $_POST['status'];
+				$nik	      = $_POST['nik'];
+				$nama	      = $_POST['nama'];
+				$alamat	    = $_POST['alamat'];
+        $gender     = $_POST['gender']; 
+				$no_hp	    = $_POST['no_hp'];
+        $departemen = $_POST['departemen'];
+				$status	    = $_POST['status'];
+				$gaji_pokok = $_POST['gaji_pokok'];
+        $tunjangan  = $_POST['tunjangan'];
 				
-				$update = mysqli_query($koneksi, "UPDATE karyawan SET nama='$nama', alamat='$alamat', no_hp='$no_hp', status='$status' WHERE nik='$nik'") or die(mysqli_error());
+        $update = mysqli_query($koneksi, "UPDATE karyawan SET nama='$nama', alamat='$alamat', gender='$gender', no_hp='$no_hp', departemen='$departemen', status='$status', gaji_pokok='$gaji_pokok', tunjangan='$tunjangan' WHERE nik='$nik'") or die(mysqli_error());
+
+        echo $update;
 				if($update){
 					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data berhasil disimpan.</div>';
 				}else{
@@ -177,55 +183,112 @@ $_SESSION['start_time'] = time();
                         </div>
                         <div class="panel-body">
                   <div class="form-panel">
-                      <form class="form-horizontal style-form" action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                      <form class="form-horizontal style-form" action="update-karyawan.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                          
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Nik</label>
+                              <label class="col-sm-2 col-sm-2 control-label">NIK</label>
                               <div class="col-sm-8">
                                   <input name="nik" type="text" id="nik" value="<?php echo $row['nik']; ?>" class="form-control" readonly="readonly" />
                               </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nama</label>
                               <div class="col-sm-3">
-                              <input name="nama" type="text" id="nama" value="<?php echo $row['nama']; ?>" class="form-control" autofocus="on" />
-                              </div>
+                            <input name="nama" type="text" id="nama" value="<?php echo $row['nama']; ?>" class="form-control" autofocus="on" />
+                              
+                            </div>
                           </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
-                              <div class="col-sm-3">
-                              <input name="alamat" type="text" id="alamat" value="<?php echo $row['alamat']; ?>" class="form-control" />
+                              <div class="col-sm-10">
+                            <input name="alamat" type="text" id="alamat" value="<?php echo $row['alamat']; ?>" class="form-control" /> 
                               </div>
                           </div>
+
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Gender</label>
+                              <div class="col-sm-10">
+                                <select name="gender" id="gender" placeholder="Gender" class="form-control" required>
+                                  <option value="0">Laki Laki</option>
+                                  <option value="1">Perempuan</option>
+                                </select>                          
+                              </div>
+                          </div>
+
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">No Handphone</label>
                               <div class="col-sm-3">
-                              <input name="no_hp" type="text" id="no_hp" value="<?php echo $row['no_hp']; ?>" class="form-control" />
+                            <input name="no_hp" type="text" id="no_hp" value="<?php echo $row['no_hp']; ?>" class="form-control" /> 
                               </div>
                           </div>
+
+                          
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Departement</label>
+                                <div class="col-sm-3">
+                                  <select name="departemen" class="form-control" required>
+                                    <option value=""> -- Pilih Departement -- </option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Purchasing">Purchasing</option>
+                                    <option value="Accounting">Accounting</option>
+                                    <option value="IT">IT</option>
+                                    <option value="Production">Production</option>
+                                    <option value="PPIC">PPIC</option>
+                                    <option value="QC">QC</option>
+                                    <option value="QA">QA</option>
+                                    <option value="Exim">Exim</option>
+                                    <option value="HRD / GA"> HRD / GA</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                  </select>
+                                </div>
+                                  <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
+                                    <div class="col-sm-3">
+                                      <span class="label label-primary"><?php echo $row['departemen']; ?></span>
+                                    </div>
+                          </div>
+                 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Status</label>
-                              <div class="col-sm-3">
-                            <select name="status" class="form-control" required>
-							<option value=""> -- Pilih Status Karyawan -- </option>
-							<option value="tetap">Tetap</option>
-							<option value="kontrak">Kontrak</option>
-                            <option value="magang">Magang</option>
-							<option value="outsource">Outsource</option>
-						    </select>
-                              </div>
-                              <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
-                              <div class="col-sm-3">
-                              <span class="label label-primary"><?php echo $row['status']; ?></span>
-                              </div>
+                                <div class="col-sm-3">
+                                  <select name="status" class="form-control" required>
+                                    <option value=""> -- Pilih Status Karyawan -- </option>
+                                    <option value="tetap">Tetap</option>
+                                    <option value="kontrak">Kontrak</option>
+                                    <option value="magang">Magang</option>
+                                    <option value="outsource">Outsourcing</option>
+                                  </select>
+                                </div>
+                                  <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
+                                    <div class="col-sm-3">
+                                      <span class="label label-primary"><?php echo $row['status']; ?></span>
+                                    </div>
                           </div>
+
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Gaji Pokok</label>
+                                <div class="col-sm-3">
+                                  <input name="gaji_pokok" type="text" id="gaji_pokok" value="<?php echo $row['gaji_pokok']; ?>" class="form-control" />
+                                </div>
+                          </div>
+
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Tunjangan</label>
+                                <div class="col-sm-3">
+                                  <input name="tunjangan" type="text" id="tunjangan" value="<?php echo $row['tunjangan']; ?>" class="form-control" />  
+                                </div>
+                          </div>
+                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"></label>
                               <div class="col-sm-10">
-                                  <input type="submit" name="update" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
-	                              <a href="karyawan.php" class="btn btn-sm btn-danger">Batal </a>
+                                  <input type="submit" name="input" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
+                                <a href="karyawan.php" class="btn btn-sm btn-danger">Batal </a>
                               </div>
                           </div>
-                      </form>
+                      </form>    
                   </div>
                   </div>
                   </div>
