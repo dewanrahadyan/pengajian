@@ -209,13 +209,13 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Status</label>
                               <div class="col-sm-3">
-                            <select name="status" class="form-control" required>
-                							<option value=""> -- Pilih Status Karyawan -- </option>
-                							<option value="tetap">Tetap</option>
-                							<option value="kontrak">Kontrak</option>
-                                            <option value="magang">Magang</option>
-                							<option value="outsource">Outsourcing</option>
-                						    </select>
+                                <select name="status" class="form-control" required>
+                    							<option value=""> -- Pilih Status Karyawan -- </option>
+                    							<option value="Tetap">Tetap</option>
+                    							<option value="Kontrak">Kontrak</option>
+                                  <option value="Magang">Magang</option>
+                    							<option value="Outsourcing">Outsourcing</option>
+                    						</select>
                             </div>
                           </div>
 

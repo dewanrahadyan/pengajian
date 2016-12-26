@@ -11,9 +11,6 @@ $gaji_pokok = $_POST['gaji_pokok'];
 $tunjangan  = $_POST['tunjangan'];
 
 $update = mysqli_query($koneksi, "UPDATE karyawan SET nama='$nama', alamat='$alamat', gender='$gender', no_hp='$no_hp', departemen='$departemen', status='$status', gaji_pokok='$gaji_pokok', tunjangan='$tunjangan' WHERE nik='$nik'") or die(mysqli_error());
-if ($update){
-header('location:karyawan.php');	
-} else {
-	echo "gagal";
-    }
-?>
+
+echo"<script>alert('Data Telah Diperbaharui')</script>";
+echo"<script>location.href='karyawan.php'</script>";

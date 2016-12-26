@@ -187,7 +187,7 @@ $_SESSION['start_time'] = time();
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">NIK</label>
-                              <div class="col-sm-8">
+                              <div class="col-sm-3">
                                   <input name="nik" type="text" id="nik" value="<?php echo $row['nik']; ?>" class="form-control" readonly="readonly" />
                               </div>
                           </div>
@@ -202,7 +202,7 @@ $_SESSION['start_time'] = time();
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
-                              <div class="col-sm-10">
+                              <div class="col-sm-9">
                             <input name="alamat" type="text" id="alamat" value="<?php echo $row['alamat']; ?>" class="form-control" /> 
                               </div>
                           </div>
@@ -211,10 +211,14 @@ $_SESSION['start_time'] = time();
                               <label class="col-sm-2 col-sm-2 control-label">Gender</label>
                               <div class="col-sm-3">
                                 <select name="gender" id="gender" placeholder="Gender" class="form-control" required>
-                                  <option value="0">Laki Laki</option>
-                                  <option value="1">Perempuan</option>
+                                  <option value="0"<?=$row['gender'] == '0' ? ' selected="selected"' : '';?>>Laki Laki</option>
+                                  <option value="1"<?=$row['gender'] == '1' ? ' selected="selected"' : '';?>>Perempuan</option>
                                 </select>                          
                               </div>
+                                <!-- <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
+                                    <div class="col-sm-3">
+                                      <span class="label label-primary"><?php echo $row['gender']; ?></span>
+                                    </div> -->
                           </div>
 
                           <div class="form-group">
@@ -231,25 +235,23 @@ $_SESSION['start_time'] = time();
                                   <select name="departemen" class="form-control" required>
                                     <option value=""> -- Pilih Departement -- </option>
                                     <option value="Warehouse"<?=$row['departemen'] == 'Warehouse' ? ' selected="selected"' : '';?>>Warehouse</option>
-
-                                    
-                                    <option value="Purchasing">Purchasing</option>
-                                    <option value="Accounting">Accounting</option>
-                                    <option value="IT">IT</option>
-                                    <option value="Production">Production</option>
-                                    <option value="PPIC">PPIC</option>
-                                    <option value="QC">QC</option>
-                                    <option value="QA">QA</option>
-                                    <option value="Exim">Exim</option>
-                                    <option value="HRD / GA"> HRD / GA</option>
-                                    <option value="Marketing">Marketing</option>
-                                    <option value="Lainnya">Lainnya</option>
+                                    <option value="Purchasing"<?=$row['departemen'] == 'Purchasing' ? ' selected="selected"' : '';?>>Purchasing</option>
+                                    <option value="Accounting"<?=$row['departemen'] == 'Accounting' ? ' selected="selected"' : '';?>>Accounting</option>
+                                    <option value="IT"<?=$row['departemen'] == 'IT' ? ' selected="selected"' : '';?>>IT</option>
+                                    <option value="Production"<?=$row['departemen'] == 'Production' ? ' selected="selected"' : '';?>>Production</option>
+                                    <option value="PPIC"<?=$row['departemen'] == 'PPIC' ? ' selected="selected"' : '';?>>PPIC</option>
+                                    <option value="QC"<?=$row['departemen'] == 'QC' ? ' selected="selected"' : '';?>>QC</option>
+                                    <option value="QA"<?=$row['departemen'] == 'QA' ? ' selected="selected"' : '';?>>QA</option>
+                                    <option value="Exim"<?=$row['departemen'] == 'Exim' ? ' selected="selected"' : '';?>>Exim</option>
+                                    <option value="HRD"<?=$row['departemen'] == 'HRD' ? ' selected="selected"' : '';?>>HRD</option>
+                                    <option value="Marketing"<?=$row['departemen'] == 'Marketing' ? ' selected="selected"' : '';?>>Marketing</option>
+                                    <option value="Lainnya"<?=$row['departemen'] == 'Lainnya' ? ' selected="selected"' : '';?>>Lainnya</option>
                                   </select>
                                 </div>
-                                  <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
+                                  <!-- <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
                                     <div class="col-sm-3">
                                       <span class="label label-primary"><?php echo $row['departemen']; ?></span>
-                                    </div>
+                                    </div> -->
                           </div>
                  
                           <div class="form-group">
@@ -257,16 +259,16 @@ $_SESSION['start_time'] = time();
                                 <div class="col-sm-3">
                                   <select name="status" class="form-control" required>
                                     <option value=""> -- Pilih Status Karyawan -- </option>
-                                    <option value="tetap">Tetap</option>
-                                    <option value="kontrak">Kontrak</option>
-                                    <option value="magang">Magang</option>
-                                    <option value="outsource">Outsourcing</option>
+                                    <option value="tetap"<?=$row['status'] == 'tetap' ? ' selected="selected"' : '';?>>Tetap</option>
+                                    <option value="kontrak"<?=$row['status'] == 'kontrak' ? ' selected="selected"' : '';?>>Kontrak</option>
+                                    <option value="magang"<?=$row['status'] == 'magang' ? ' selected="selected"' : '';?>>Magang</option>
+                                    <option value="outsource"<?=$row['status'] == 'outsource' ? ' selected="selected"' : '';?>>Outsourcing</option>
                                   </select>
                                 </div>
-                                  <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
+                                  <!-- <label class="col-sm-3 col-sm-3 control-label">Status Sebelumnya : </label>
                                     <div class="col-sm-3">
                                       <span class="label label-primary"><?php echo $row['status']; ?></span>
-                                    </div>
+                                    </div> -->
                           </div>
 
                           <div class="form-group">
