@@ -117,7 +117,28 @@ $_SESSION['start_time'] = time();
               <form action='gaji.php' method="POST">
           
 	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qcari' placeholder='Cari berdasarkan Nama & Gaji Bulan' required /> 
-           <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='gaji.php' class="btn btn-sm btn-success" >Refresh</i></a>
+          
+           <select name="qDepartemen" class="form-control" style="margin-bottom: 4px;">
+              <option value=""> -- Pilih Departement -- </option>
+              <option value="Warehouse">Warehouse</option>
+              <option value="Purchasing">Purchasing</option>
+              <option value="Accounting">Accounting</option>
+              <option value="IT">IT</option>
+              <option value="Production">Production</option>
+              <option value="PPIC">PPIC</option>
+              <option value="QC">QC</option>
+              <option value="QA">QA</option>
+              <option value="Exim">Exim</option>
+              <option value="HRD / GA"> HRD / GA</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+
+
+            
+            <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> 
+           
+           <a href='gaji.php' class="btn btn-sm btn-success" >Refresh</i></a>
           	</div>
               </div>
            <!-- /.row -->
@@ -136,14 +157,26 @@ $_SESSION['start_time'] = time();
                         <div class="panel-body">
                        <!-- <div class="table-responsive"> -->
                     <?php
-                    $query1="select * from gajian limit 40";
+                    $query1="select * from gajian inner join karyawan on gajian.nik = karyawan.nik limit 40";
                     
                     if(isset($_POST['qcari'])){
 	               $qcari=$_POST['qcari'];
+                   $qDepartemen=$_POST['qDepartemen'];
 	               $query1="SELECT * FROM  gajian 
-	               where nama like '%$qcari%'
-	               or gaji_bulan like '%$qcari%'  ";
+
+                   INNER JOIN karyawan on gajian.nik = karyawan.nik 
+                   INNER JOIN departement on karyawan.nik = departement.nik 
+                   
+                   where gajian.nik like '%$qcari%' 
+	               
+                   or karyawan.nama like '%$qcari%'  
+
+                   or departement.departement like '%$qDepartemen%'  
+
+                   ";
+                    
                     }
+                    
                     $tampil=mysqli_query($koneksi, $query1) or die (mysqli_error());
                     ?>
                   <table id="example" class="table table-hover table-bordered">
@@ -151,6 +184,7 @@ $_SESSION['start_time'] = time();
                       <tr>
                         <th><center>No </center></th>
                         <th><center>Nik </i></center></th>
+                        <th><center>Nama</i></center></th>
                         <th><center>Bulan </center></th>
                         <th><center>Tahun </center></th>
                         <th><center>Transfer </center></th>
@@ -166,6 +200,7 @@ $_SESSION['start_time'] = time();
                     <tr>
                     <td><center><?php echo $no; ?></center></td>
                     <td><center><a href="detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nik'];?></center></td>
+                    <td><center><?php echo $data['nama']; ?></center></td>
                     <td><center><?php echo $data['gaji_bulan']; ?></center></td>
                     <td><center><?php echo $data['gaji_tahun']; ?></center></td>
                     <td><center><?php echo $data['tgl_transfer']; ?></center></td>
