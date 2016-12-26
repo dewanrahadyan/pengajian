@@ -93,7 +93,7 @@ $_SESSION['start_time'] = time();
 
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
-                        <div class="col-lg-3 col-xs-6">
+                        <div class="col-lg-4 col-xs-6">
                             <!-- small box -->
                             <?php $tampil=mysqli_query($koneksi, "select * from karyawan order by nik desc");
                         $total=mysqli_num_rows($tampil);
@@ -137,7 +137,7 @@ $_SESSION['start_time'] = time();
                                 </a>
                             </div>
                         </div-->
-                        <div class="col-lg-3 col-xs-6">
+                        <div class="col-lg-4 col-xs-6">
                             <!-- small box -->
                             <?php $tampil2=mysqli_query($koneksi, "select * from gajian order by kd_gaji desc");
                         $pel=mysqli_num_rows($tampil2);
@@ -159,7 +159,7 @@ $_SESSION['start_time'] = time();
                                 </a>
                             </div>
                         </div><!-- ./col -->
-                        <div class="col-lg-3 col-xs-6">
+                        <div class="col-lg-4 col-xs-6">
                         <?php $tampil3=mysqli_query($koneksi, "select * from user order by user_id desc");
                         $user=mysqli_num_rows($tampil3);
                     ?>
