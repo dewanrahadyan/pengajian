@@ -241,7 +241,7 @@ $_SESSION['start_time'] = time();
                    </table>
                   <!-- </div>-->
                 <div class="text-right">
-                  <a href="departement.php" class="btn btn-sm btn-primary">Menu Departement<i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="karyawan.php" class="btn btn-sm btn-primary">Menu Karyawan<i class="fa fa-arrow-circle-right"></i></a>
               
                 </div>
               </div> 
