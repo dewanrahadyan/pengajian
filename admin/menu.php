@@ -26,7 +26,7 @@
                                 <li><a href="input-karyawan.php"><i class="fa fa-angle-double-right"></i> Tambah Karyawan</a></li>
                             </ul>
                         </li>
-                        <li class="treeview">
+                        <!--li class="treeview">
                             <a href="#">
                                 <i class="glyphicon glyphicon-link"></i>
                                 <span>Departement</span>
@@ -36,7 +36,7 @@
                                 <li><a href="department.php"><i class="fa fa-angle-double-right"></i> Departement</a></li>
                                 <li><a href="input-departement.php"><i class="fa fa-angle-double-right"></i> Tambah Departement</a></li>
                             </ul>
-                        </li>
+                        </li-->
                         <li class="treeview">
                             <a href="#">
                                 <i class="glyphicon glyphicon-usd"></i> <span>Penggajian</span>

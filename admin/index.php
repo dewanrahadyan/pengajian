@@ -115,15 +115,15 @@ $_SESSION['start_time'] = time();
                                 </a>
                             </div>
                         </div><!-- ./col -->
-                        <div class="col-lg-3 col-xs-6">
-                            <!-- small box -->
+                        <!--div class="col-lg-3 col-xs-6">
+                            
                             <?php $tampil1=mysqli_query($koneksi, "select * from departemen order by kd_dept desc");
                         $dept=mysqli_num_rows($tampil1);
                     ?>
                             <div class="small-box bg-green">
                                 <div class="inner">
                                     <h3>
-                                        <?php echo "$dept"; ?> <!--<sup style="font-size: 20px">%</sup>-->
+                                        <?php echo "$dept"; ?> 
                                     </h3>
                                     <p>
                                         Departement
@@ -136,7 +136,7 @@ $_SESSION['start_time'] = time();
                                     Lihat Detail Departement <span class="glyphicon glyphicon-chevron-right"></span>
                                 </a>
                             </div>
-                        </div><!-- ./col -->
+                        </div-->
                         <div class="col-lg-3 col-xs-6">
                             <!-- small box -->
                             <?php $tampil2=mysqli_query($koneksi, "select * from gajian order by kd_gaji desc");
@@ -191,7 +191,7 @@ $_SESSION['start_time'] = time();
 
                             <div class="panel panel-default">
                         <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user"></i> Data Departement </h3> 
+                        <h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
                         </div>
                         <div class="panel-body">
                        <!-- <div class="table-responsive"> -->
