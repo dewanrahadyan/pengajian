@@ -96,15 +96,23 @@ $_SESSION['start_time'] = time();
 <?php
 			if(isset($_POST['input'])){
 				$nik		= $_POST['nik'];
+        $departemen       = $_POST['departemen'];
 				$nama       = $_POST['nama'];
 				$alamat   	= $_POST['alamat'];
+        $gender       = $_POST['gender'];
+
 				$no_hp      = $_POST['no_hp'];
                 $status     = $_POST['status'];
+                $gaji_pokok= $_POST['gaji_pokok'];
+                $tunjangan= $_POST['tunjangan'];
 				
 				$cek = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik'");
 				if(mysqli_num_rows($cek) == 0){
-						$insert = mysqli_query($koneksi, "INSERT INTO karyawan(nik, nama, alamat, no_hp, status)
-															VALUES('$nik','$nama', '$alamat', '$no_hp', '$status')") or die(mysqli_error());
+						$insert = mysqli_query($koneksi, "INSERT INTO karyawan(nik, departemen, nama, alamat, gender, no_hp, status, gaji_pokok, tunjangan)
+															VALUES('$nik','$departemen','$nama', '$alamat', '$gender', '$no_hp', '$status', '$gaji_pokok', '$tunjangan')") or die(mysqli_error());
+
+            //$insert = mysqli_query($koneksi, "INSERT INTO karyawan(nik, kd_dept, nama, alamat,gender, no_hp, status, gaji_pokok, tunjangan)
+              //                VALUES('$nik','$kd_dept','$nama', '$alamat','$gender', '$no_hp', '$status')") or die(mysqli_error());
 						if($insert){
 							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data Karyawan Berhasil Di Simpan.</div>';
 						}else{
@@ -114,6 +122,13 @@ $_SESSION['start_time'] = time();
 					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>NIK Sudah Ada..!</div>';
 				}
 			}
+
+    //List Data Departemen
+     
+    $listDepartemen="select * from departemen";
+    $tampilDepartemen=mysqli_query($koneksi, $listDepartemen) or die(mysqli_error());
+                              
+                                
 			?>
            <!-- /.row -->
                     <br />
@@ -143,10 +158,23 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
                               <div class="col-sm-10">
-                            <input name="alamat" type="text" id="alamat" class="form-control" placeholder="Alamat" autocomplete="off" required />
+                            <input name="alamat" type="text" id="alamat" class="form-control" placeholder="Alamat" autocomplete ="off" required />
                               
                             </div>
+
                           </div>
+
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Gender</label>
+                              <div class="col-sm-10">
+                                <select name="gender" id="gender" placeholder="Gender" class="form-control" required>
+                                  <option value="0">Laki Laki</option>
+                                  <option value="1">Perempuan</option>
+                                </select>
+                                                        
+                              </div>
+                          </div>
+
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">No Handphone</label>
                               <div class="col-sm-3">
@@ -154,17 +182,59 @@ $_SESSION['start_time'] = time();
                               
                             </div>
                           </div>
+
+                          
+                        <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Departement</label>
+                              <div class="col-sm-3">
+                            <select name="departemen" class="form-control" required>
+              <option value=""> -- Pilih Departement -- </option>
+              <option value="Warehouse">Warehouse</option>
+              <option value="Purchasing">Purchasing</option>
+                            <option value="Accounting">Accounting</option>
+              <option value="IT">IT</option>
+                            <option value="Production">Production</option>
+              <option value="PPIC">PPIC</option>
+                            <option value="QC">QC</option>
+              <option value="QA">QA</option>
+                            <option value="Exim">Exim</option>
+              <option value="HRD / GA"> HRD / GA</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Lainnya">Lainnya</option>
+                </select>
+                              </div>
+                          </div>
+                 
+
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Status</label>
                               <div class="col-sm-3">
                             <select name="status" class="form-control" required>
-							<option value=""> -- Pilih Status Karyawan -- </option>
-							<option value="tetap">Tetap</option>
-							<option value="kontrak">Kontrak</option>
-                            <option value="magang">Magang</option>
-							<option value="outsource">Outsourcing</option>
-						    </select>
+                							<option value=""> -- Pilih Status Karyawan -- </option>
+                							<option value="tetap">Tetap</option>
+                							<option value="kontrak">Kontrak</option>
+                                            <option value="magang">Magang</option>
+                							<option value="outsource">Outsourcing</option>
+                						    </select>
                             </div>
+                          </div>
+
+                           <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Gaji Pokok</label>
+                              <div class="col-sm-10">
+                            <input name="gaji_pokok" type="text" id="gaji_pokok" class="form-control" placeholder="Gaji Pokok" autocomplete="off" required />
+                              
+                            </div>
+
+                          </div>
+
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Tunjangan</label>
+                              <div class="col-sm-10">
+                            <input name="tunjangan" type="text" id="tunjangan" class="form-control" placeholder="tunjangan" autocomplete="off" required />
+                              
+                            </div>
+
                           </div>
                           
                           <div class="form-group">

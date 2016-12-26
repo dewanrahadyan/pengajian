@@ -87,7 +87,8 @@ $_SESSION['start_time'] = time();
              <?php
              if(isset($_GET['hal']) == 'hapus'){
 				$nik = $_GET['kd'];
-				$cek = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik'");
+
+				$cek = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik' ");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data tidak ditemukan.</div>';
 				}else{
@@ -115,8 +116,28 @@ $_SESSION['start_time'] = time();
               <div class="col-lg-4">
               <form action='karyawan.php' method="POST">
           
-	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qcari' placeholder='Cari berdasarkan Nik & Nama ' required /> 
-           <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='department.php' class="btn btn-sm btn-success" >Refresh</i></a>
+	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNik' placeholder='Cari berdasarkan Nik '  /> 
+           <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNama' placeholder='Cari  Nama '  />
+           
+           <select name="qDepartemen" class="form-control" style="margin-bottom: 4px;">
+              <option value=""> -- Pilih Departement -- </option>
+              <option value="Warehouse">Warehouse</option>
+              <option value="Purchasing">Purchasing</option>
+              <option value="Accounting">Accounting</option>
+              <option value="IT">IT</option>
+              <option value="Production">Production</option>
+              <option value="PPIC">PPIC</option>
+              <option value="QC">QC</option>
+              <option value="QA">QA</option>
+              <option value="Exim">Exim</option>
+              <option value="HRD / GA"> HRD / GA</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+
+            <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='karyawan.php' class="btn btn-sm btn-success" >
+
+           Refresh</i></a>
           	</div>
               </div>
            <!-- /.row -->
@@ -131,14 +152,68 @@ $_SESSION['start_time'] = time();
                         <div class="panel-body">
                        <!-- <div class="table-responsive"> -->
                     <?php
-                    $query1="select * from karyawan";
+                   
+                   $cariNIK=NULL;
+                   $cariNama=NULL;
+                   $cariDepartemen=NULL;
+                   $whereis=NULL;
+
+                   
                     
-                    if(isset($_POST['qcari'])){
-	               $qcari=$_POST['qcari'];
-	               $query1="SELECT * FROM karyawan 
-	               where nik like '%$qcari%'
-	               or nama like '%$qcari%'  ";
+                    if((!empty($_POST["qNik"])) or (!empty($_POST["qNama"])) or (!empty($_POST["qDepartemen"])) )
+                    {
+                        $whereis=" where ";
+                        $qNik=  $_POST['qNik'];
+                        $qNama= $_POST['qNama'];
+                        $qDepartemen= $_POST['qDepartemen'];
+
+                           if(!empty($_POST["qNik"]) )
+                           {
+
+                            $cariNIK = "nik = '$qNik'";
+                           }
+
+                           if(!empty($_POST["qNama"]) )
+                           {
+
+
+                                $hubung1 = "";
+                                if(!empty($_POST["qNik"]) )
+                                    {$hubung1 = "or";}
+
+                                $cariNama = " ".$hubung1." nama like '%$qNama%'";
+
+                        
+                        
+                                
+                           }
+                           if(!empty($_POST["qDepartemen"]) )
+                           {
+
+                                $hubung2 = "";
+                                if((!empty($_POST["qNik"]) )or(!empty($_POST["qNama"]) ))
+                                    {$hubung2 = "or";}
+                                $cariDepartemen = " ".$hubung2." departemen like '%$qDepartemen%'";
+                                
+
+                                
+                           }
+
+                          
+                           
+                           
                     }
+                   
+                    
+
+                 //  $caridepartemen = $_GET['caridepartemen'];
+	               //$query1="SELECT * FROM karyawan 
+	               //where nik like '%$qcari%'
+	               //or nama like '%$qcari%'  ";
+                    
+                     $query1="select * from karyawan ".$whereis."  ".$cariNIK."  ".$cariNama." ".$cariDepartemen; 
+                  
+
                     $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                     ?>
                   <table id="example" class="table table-hover table-bordered">
@@ -149,6 +224,7 @@ $_SESSION['start_time'] = time();
                         <th><center>Nama </center></th>
                         <th><center>Alamat </center></th>
                         <th><center>No HP </center></th>
+                        <th><center>Departemen </center></th>
                         <th><center>Status </center></th>
                         <th><center>Tools</center></th>
                       </tr>
@@ -164,6 +240,7 @@ $_SESSION['start_time'] = time();
                     <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
+                    <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
                             if($data['status'] == 'tetap'){
 								echo '<span class="label label-success">Tetap</span>';

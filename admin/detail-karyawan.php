@@ -157,6 +157,10 @@ $_SESSION['start_time'] = time();
                   <div class="form-panel">
                       <table id="example" class="table table-hover table-bordered">
                       <tr>
+
+ 
+
+
                       <td width="250">Nik</td>
                       <td width="565"><?php echo $data['nik']; ?></td>
                       </tr>
@@ -165,9 +169,29 @@ $_SESSION['start_time'] = time();
                       <td ><?php echo $data['nama']; ?></td>
                       </tr>
                       <tr>
+                      <td >Departemen</td>
+                      <td ><?php echo $data['departemen']; ?></td>
+                      </tr>
+                      <tr>
                       <td>Alamat</td>
                       <td><?php echo $data['alamat']; ?></td>
                       </tr>
+                     
+                      <tr>
+                      <td>Gender</td></td>
+                      <td><?php
+                            if($data['gender'] == 0){
+                                echo '<span class="label label-success">Laki - Laki</span>';
+                            }
+                            else 
+                            {
+                                echo '<span class="label label-primary">Perempuan</span>';
+                            }
+                            
+                    
+                    ?></td>
+                      </tr>
+
                       <tr>
                       <td>No Handphone</td>
                       <td><?php echo $data['no_hp']; ?></td>
@@ -189,6 +213,14 @@ $_SESSION['start_time'] = time();
 							}
                     
                     ?></td>
+                      </tr>
+                       <tr>
+                      <td>Gaji Pokok</td>
+                      <td><?php echo $data['gaji_pokok']; ?></td>
+                      </tr>
+                       <tr>
+                      <td>Tunjangan</td>
+                      <td><?php echo $data['tunjangan']; ?></td>
                       </tr>
                       </table>
                       <div class="text-right">
