@@ -87,12 +87,14 @@ $_SESSION['start_time'] = time();
              <?php
              if(isset($_GET['hal']) == 'hapus'){
 				$nik = $_GET['kd'];
+        $kd_gaji = $_GET['kd_gaji'];
+        echo $kd_gaji;
 
-				$cek = mysqli_query($koneksi, "SELECT * FROM pengajian WHERE nik='$nik' ");
+				$cek = mysqli_query($koneksi, "SELECT * FROM gajian WHERE kd_gaji='$kd_gaji' ");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data tidak ditemukan.</div>';
 				}else{
-					$delete = mysqli_query($koneksi, "DELETE FROM pengajian WHERE nik='$nik'");
+					$delete = mysqli_query($koneksi, "DELETE FROM gajian WHERE kd_gaji='$kd_gaji'");
 					if($delete){
 						echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data berhasil dihapus.</div>';
 					}else{
@@ -194,7 +196,8 @@ $_SESSION['start_time'] = time();
                       <td><center><?php echo $data['uang_lembur']; ?></center></td>
                       <td><center><?php echo $data['take_home_pay']; ?></center></td>
                       <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Gaji" href="edit-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-edit"></span></a>  
-                      <a onclick="return confirm ('Yakin hapus <?php echo $data['nama'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Karyawan" href="karyawan.php?hal=hapus&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>
+                      <a onclick="return confirm ('Yakin hapus data?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Gaji" href="manajemen-gaji-karyawan.php?hal=hapus&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo 
+                      $data['kd_gaji'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>
 
 
                     
