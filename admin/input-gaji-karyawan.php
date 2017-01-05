@@ -525,7 +525,7 @@ $_SESSION['start_time'] = time();
                               <label class="col-sm-2 col-sm-2 control-label"></label>
                               <div class="col-sm-10">
                                   <input type="submit" name="input" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
-	                              <a href="manajemen-gaji.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-danger">Batal </a>
+	                              <a href="manajemen-gaji-karyawan.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-danger">Batal </a>
                                 
                               </div>
                           </div>
