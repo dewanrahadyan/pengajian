@@ -88,11 +88,11 @@ $_SESSION['start_time'] = time();
              if(isset($_GET['hal']) == 'hapus'){
 				$nik = $_GET['kd'];
 
-				$cek = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik' ");
+				$cek = mysqli_query($koneksi, "SELECT * FROM pengajian WHERE nik='$nik' ");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data tidak ditemukan.</div>';
 				}else{
-					$delete = mysqli_query($koneksi, "DELETE FROM karyawan WHERE nik='$nik'");
+					$delete = mysqli_query($koneksi, "DELETE FROM pengajian WHERE nik='$nik'");
 					if($delete){
 						echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data berhasil dihapus.</div>';
 					}else{
@@ -116,86 +116,35 @@ $_SESSION['start_time'] = time();
               <div class="col-lg-4">
               <form action='karyawan.php' method="POST">
           
-	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNik' placeholder='Cari berdasarkan Nik '  /> 
-           <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNama' placeholder='Cari  Nama '  />
-           
-           <select name="qDepartemen" class="form-control" style="margin-bottom: 4px;">
-              <option value=""> -- Pilih Departement -- </option>
-              <option value="Warehouse">Warehouse</option>
-              <option value="Purchasing">Purchasing</option>
-              <option value="Accounting">Accounting</option>
-              <option value="IT">IT</option>
-              <option value="Production">Production</option>
-              <option value="PPIC">PPIC</option>
-              <option value="QC">QC</option>
-              <option value="QA">QA</option>
-              <option value="Exim">Exim</option>
-              <option value="HRD / GA"> HRD / GA</option>
-              <option value="Marketing">Marketing</option>
-              <option value="Lainnya">Lainnya</option>
-            </select>
-
-            <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='karyawan.php' class="btn btn-sm btn-success" >
-
-           Refresh</i></a>
+	     
           	</div>
               </div>
            <!-- /.row -->
+           <div class="text-right">
+           <a href="input-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>"  class="btn btn-sm btn-warning"> 
+                  Tambah Gaji  <i class="fa fa-arrow-circle-right"></i></a>
+              
+                </div>
                     <br />
                     <!-- Main row -->
+
+
+
                     <div class="row">
                         <div class="col-lg-12">
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
+                        <h3 class="panel-title"><i class="fa fa-user"></i> Data Gaji  </h3> 
                         </div>
+
+
                         <div class="panel-body">
                        <!-- <div class="table-responsive"> -->
                   
                   <?php
-                   
-                   $cariNIK=NULL;
-                   $cariNama=NULL;
-                   $cariDepartemen=NULL;
-                   $whereis=NULL;
-
-                   
+               
                     
-                    if((!empty($_POST["qNik"])) or (!empty($_POST["qNama"])) or (!empty($_POST["qDepartemen"])) )
-                    {
-                        $whereis=" where ";
-                        $qNik=  $_POST['qNik'];
-                        $qNama= $_POST['qNama'];
-                        $qDepartemen= $_POST['qDepartemen'];
-
-                           if(!empty($_POST["qNik"]) )
-                             {
-
-                              $cariNIK = "nik = '$qNik'";
-                             }
-                           if(!empty($_POST["qNama"]) )
-                             {
-                                  $hubung1 = "";
-                                  if(!empty($_POST["qNik"]) )
-                                      {$hubung1 = "or";}
-
-                                  $cariNama = " ".$hubung1." nama like '%$qNama%'";     
-                             }
-                           if(!empty($_POST["qDepartemen"]) )
-                             {
-                                  $hubung2 = "";
-                                  if((!empty($_POST["qNik"]) )or(!empty($_POST["qNama"]) ))
-                                      {$hubung2 = "or";}
-                                  $cariDepartemen = " ".$hubung2." departemen like '%$qDepartemen%'";     
-                             }                                             
-                    }
-
-                 //  $caridepartemen = $_GET['caridepartemen'];
-	               //$query1="SELECT * FROM karyawan 
-	               //where nik like '%$qcari%'
-	               //or nama like '%$qcari%'  ";
-                    
-                      $query1="select * from karyawan ".$whereis."  ".$cariNIK."  ".$cariNama." ".$cariDepartemen; 
+                      $query1="select * from gajian inner join karyawan on gajian.nik = karyawan.nik"; 
                   
                       $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                   ?>
@@ -203,10 +152,27 @@ $_SESSION['start_time'] = time();
                   <table id="example" class="table table-hover table-bordered">
                   <thead>
                       <tr>
-                        <th><center>No </center></th>
-                        <th><center>Nik </i></center></th>
-                        <th><center>Nama </center></th>
-                        <th><center>Departemen </center></th>                       
+
+
+
+<th><center>Kode Gaji</center></th>
+<th><center>Gaji Bulan</center></th>
+<th><center>Gaji Tahun</center></th>
+
+<th><center>Gaji Pokok</center></th>
+<th><center>Tunjangan Jabatan</center></th>
+<th><center>Premi Hadir</center></th>
+<th><center>Tunjangan Konsumsi</center></th>
+
+<th><center>Tunjangan Jamsostek Tenaga Kerja</center></th>
+<th><center>Uang Lembur</center></th>
+
+<th><center>Take Home Pay</center></th>
+
+
+
+
+                   
                         <th><center>Tools</center></th>
                       </tr>
                   </thead>
@@ -216,13 +182,25 @@ $_SESSION['start_time'] = time();
                     { $no++; ?>
                     <tbody>
                     <tr>
-                      <td><center><?php echo $no; ?></center></td>
-                      <td><center><?php echo $data['nik'];?></center></td>
-                      <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
-                      <td><center><?php echo $data['departemen']; ?></center></td>
-                      <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>  
-                      </center>
-                      </td>
+                      
+                      <td><center><?php echo $data['kd_gaji']; ?></center></td>
+                      <td><center><?php echo $data['gaji_bulan']; ?></center></td>
+                      <td><center><?php echo $data['gaji_tahun']; ?></center></td>
+
+                      <td><center><?php echo $data['gaji_pokok']; ?></center></td>
+                      <td><center><?php echo $data['tunjangan']; ?></center></td>
+                      <td><center><?php echo $data['premi_hadir']; ?></center></td>
+                      <td><center><?php echo $data['tunjangan_konsumsi']; ?></center></td>
+
+                      <td><center><?php echo $data['tunjangan_jamsostek']; ?></center></td>
+                      <td><center><?php echo $data['uang_lembur']; ?></center></td>
+
+                      <td><center><?php echo $data['take_home_pay']; ?></center></td>
+
+
+                    
+                      
+                    
                     </tr>
                     </div>
                  <?php   
@@ -231,7 +209,7 @@ $_SESSION['start_time'] = time();
                    </tbody>
                    </table>
                   <!-- </div>-->
-            
+                
               </div> 
               </div>
             </div><!-- col-lg-12--> 

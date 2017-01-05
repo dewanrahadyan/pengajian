@@ -143,28 +143,109 @@ $_SESSION['start_time'] = time();
                 <section class="content">
 <?php
 			if(isset($_POST['input'])){
-				$kd_gaji	    = $_POST['kd_gaji'];
-				$nik		    = $_POST['nik'];
-				$gaji_bulan	    = $_POST['gaji_bulan'];
-				$gaji_tahun     = $_POST['gaji_tahun'];
-                $tgl_transfer   = $_POST['tgl_transfer'];
-                $absensi        = $_POST['absensi'];
-                $sakit          = $_POST['sakit'];
-                $cuti           = $_POST['cuti'];
-                $no_rek         = $_POST['no_rek'];
-                $gaji           = $_POST['gaji'];
-                $tunjangan      = $_POST['tunjangan'];
-                $uang_makan     = $_POST['uang_makan'];
-                $uang_transport = $_POST['uang_transport'];
-                $thr            = $_POST['thr'];
-                $total          = $_POST['total'];
+
+                $nik= $_POST['nik'];
+                $kd_gaji= $_POST['kd_gaji'];
+                $gaji_bulan= $_POST['gaji_bulan'];
+                $gaji_tahun= $_POST['gaji_tahun'];
+                $hadir= $_POST['hadir'];
+                $telat= $_POST['telat'];
+                $tidak_hadir= $_POST['tidak_hadir'];
+                $premi_hadir= $_POST['premi_hadir'];
+                $tunjangan_konsumsi= $_POST['tunjangan_konsumsi'];
+                $komisi_penjualan= $_POST['komisi_penjualan'];
+                $komisi_bsc= $_POST['komisi_bsc'];
+                $barang_berkomisi= $_POST['barang_berkomisi'];
+                $tunjangan_jamsostek= $_POST['tunjangan_jamsostek'];
+                $uang_lembur= $_POST['uang_lembur'];
+                $gaji_bruto= $_POST['gaji_bruto'];
+                $setor_jamsostek= $_POST['setor_jamsostek'];
+                $pot_jamsostek= $_POST['pot_jamsostek'];
+                $gaji_netto= $_POST['gaji_netto'];
+                $pot_telat= $_POST['pot_telat'];
+                $pot_tidak_hadir= $_POST['pot_tidak_hadir'];
+                $pot_premi_hadir= $_POST['pot_premi_hadir'];
+                $pot_itu= $_POST['pot_itu'];
+                $pot_iuran_wajib= $_POST['pot_iuran_wajib'];
+                $pot_iuran_sukarela= $_POST['pot_iuran_sukarela'];
+                $pot_iuran_koperasi= $_POST['pot_iuran_koperasi'];
+                $biaya_adm= $_POST['biaya_adm'];
+                $take_home_pay= $_POST['take_home_pay'];
+
+
+			
 				
 				$cek = mysqli_query($koneksi, "SELECT * FROM gajian WHERE kd_gaji='$kd_gaji'");
 				if(mysqli_num_rows($cek) == 0){
-						$insert = mysqli_query($koneksi, "INSERT INTO gajian (kd_gaji, nik, gaji_bulan, gaji_tahun, tgl_transfer, absensi, sakit, cuti, no_rek, gaji, tunjangan, uang_makan, uang_transport, thr, total)
-															              VALUES('$kd_gaji', '$nik', '$gaji_bulan', '$gaji_tahun', '$tgl_transfer', '$absensi', '$sakit', '$cuti', '$no_rek', '$gaji', '$tunjangan', '$uang_makan', '$uang_transport', '$thr', '$total')") or die(mysqli_error());
+					 
+            $insert = mysqli_query($koneksi, 
+              "INSERT INTO gajian 
+              (
+
+                nik,
+                kd_gaji,
+                gaji_bulan, 
+                gaji_tahun,
+                hadir,
+                telat, 
+                tidak_hadir,
+                premi_hadir,
+                tunjangan_konsumsi,
+                komisi_penjualan,
+                komisi_bsc,
+                barang_berkomisi, 
+                tunjangan_jamsostek, 
+                uang_lembur,
+                gaji_bruto,
+                setor_jamsostek,
+                pot_jamsostek, 
+                gaji_netto, 
+                pot_telat, 
+                pot_tidak_hadir,
+                pot_premi_hadir, 
+                pot_itu, 
+                pot_iuran_wajib,
+                pot_iuran_sukarela, 
+                pot_iuran_koperasi,
+                biaya_adm, 
+                take_home_pay
+              )
+                                            
+              VALUES(
+                '$nik', 
+                '$kd_gaji', 
+                '$gaji_bulan',  
+                '$gaji_tahun', 
+                '$hadir', 
+                '$telat',  
+                '$tidak_hadir', 
+                '$premi_hadir', 
+                '$tunjangan_konsumsi', 
+                '$komisi_penjualan', 
+                '$komisi_bsc', 
+                '$barang_berkomisi',  
+                '$tunjangan_jamsostek',  
+                '$uang_lembur', 
+                '$gaji_bruto', 
+                '$setor_jamsostek', 
+                '$pot_jamsostek',  
+                '$gaji_netto',  
+                '$pot_telat',  
+                '$pot_tidak_hadir', 
+                '$pot_premi_hadir',  
+                '$pot_itu',  
+                '$pot_iuran_wajib', 
+                '$pot_iuran_sukarela',  
+                '$pot_iuran_koperasi', 
+                '$biaya_adm',  
+                '$take_home_pay')
+
+
+
+              ") or die(mysqli_error());
+
 						if($insert){
-							echo "<script>alert('Data Gaji Karyawan Berhasil dimasukan!'); window.location = 'gaji.php'</script>";
+							echo "<script>alert('Data Gaji Karyawan Berhasil dimasukan!'); window.location = 'manajemen-gaji-karyawan.php?&kd=".$_GET['kd']."'</script>";
 						}else{ 
 							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Ups, Data Gaji Gagal Di simpan !</div>';
 						}
@@ -184,7 +265,7 @@ $_SESSION['start_time'] = time();
                         </div>
                         <div class="panel-body">
                   <div class="form-panel">
-                      <form class="form-horizontal style-form" action="input-gaji.php" method="post" enctype="multipart/form-data" name="transfer" id="form1">
+                      <form class="form-horizontal style-form" action="input-gaji-karyawan.php" method="post" enctype="multipart/form-data" name="transfer" id="form1">
                           
 
                           <div class="form-group">
@@ -194,11 +275,12 @@ $_SESSION['start_time'] = time();
                                 </div>
                           </div>
                           <?php
-                              $kode = $_GET['kode'];
+                              $kode = $_GET['kd'];
+
                               $query1="select * from karyawan where nik='$kode'";
                               $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
-                              while($data=mysqli_fetch_array($tampil))
-                              {
+                              $data=mysqli_fetch_array($tampil);
+                              
                               ?>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nik</label>
@@ -213,7 +295,7 @@ $_SESSION['start_time'] = time();
                                   <input name="" type="text" id="" value="<?php echo $data['nama']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
                                 </div>
                           </div> 
-                          <?php } ?>
+                          
 
                           
                           <div class="form-group">
@@ -281,15 +363,18 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gaji Pokok</label>
                                 <div class="col-sm-3">
-                                  <input name="gaji_pokok" type="text" id="gaji_pokok" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="gaji_pokok" type="text" id="" value="<?php echo $data['gaji_pokok']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
+                                 
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tunjangan Jabatan</label>
                                 <div class="col-sm-3">
-                                  <input name="tunjangan_jabatan" type="text" id="tunjangan_jabatan" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="tunjangan_jabatan" type="text" id="tunjangan_jabatan" value="<?php echo $data['tunjangan']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
+                                  
                                 </div>
+
                           </div>
 
                           <div class="form-group">
@@ -302,7 +387,7 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tunjangan Konsumsi</label>
                                 <div class="col-sm-3">
-                                  <input name="tunjagnan_konsumsi" type="text" id="tunjagnan_konsumsi" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="tunjangan_konsumsi" type="text" id="tunjangan_konsumsi" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
@@ -503,10 +588,10 @@ var thr = document.transfer.thr.value;
 var total = document.transfer.total.value;
 
 uang_makan = 10000 * absensi;
-document.transfer.uang_makan.value = Math.floor( uang_makan );
+document.transfer.tunjagnan_konsumsi.value = Math.floor( uang_makan );
 
 uang_transport = 15000 * absensi;
-document.transfer.uang_transport.value = Math.floor( uang_transport );
+document.transfer.premi_hadir.value = Math.floor( uang_transport );
 
 total =  ((gaji - tunjangan ) + (2 * tunjangan)) + (uang_makan + uang_transport) + ((thr - thr) + (1 * thr));
 document.transfer.total.value = Math.floor( total);

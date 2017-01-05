@@ -37,16 +37,16 @@
                                 <li><a href="input-departement.php"><i class="fa fa-angle-double-right"></i> Tambah Departement</a></li>
                             </ul>
                         </li-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-usd"></i> <span>Penggajian</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                      
+
+                        <li class="active">
+                            <a href="manajemen-gaji.php">
+
+                            <i class="glyphicon glyphicon-usd"></i> <span>Manajemen Pengajian</span>
+                            
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="gaji.php"><i class="fa fa-angle-double-right"></i> Data Gaji Karyawan</a></li>
-                                <li><a href="manajemen-gaji.php"><i class="fa fa-angle-double-right"></i> Input Gaji Karyawan</a></li>
-                            </ul>
                         </li>
+
                         <li class="treeview">
                             <a href="#">
                                 <i class="glyphicon glyphicon-lock"></i> <span>Admin</span>
