@@ -144,7 +144,7 @@ $_SESSION['start_time'] = time();
                   <?php
                
                     
-                      $query1="select * from gajian inner join karyawan on gajian.nik = karyawan.nik"; 
+                      $query1="SELECT * FROM gajian INNER JOIN karyawan ON gajian.nik = karyawan.nik WHERE gajian.nik = ".$_GET['kd']; 
                   
                       $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                   ?>
@@ -186,16 +186,15 @@ $_SESSION['start_time'] = time();
                       <td><center><?php echo $data['kd_gaji']; ?></center></td>
                       <td><center><?php echo $data['gaji_bulan']; ?></center></td>
                       <td><center><?php echo $data['gaji_tahun']; ?></center></td>
-
                       <td><center><?php echo $data['gaji_pokok']; ?></center></td>
                       <td><center><?php echo $data['tunjangan']; ?></center></td>
                       <td><center><?php echo $data['premi_hadir']; ?></center></td>
                       <td><center><?php echo $data['tunjangan_konsumsi']; ?></center></td>
-
                       <td><center><?php echo $data['tunjangan_jamsostek']; ?></center></td>
                       <td><center><?php echo $data['uang_lembur']; ?></center></td>
-
                       <td><center><?php echo $data['take_home_pay']; ?></center></td>
+                      <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Gaji" href="edit-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-edit"></span></a>  
+                      <a onclick="return confirm ('Yakin hapus <?php echo $data['nama'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Karyawan" href="karyawan.php?hal=hapus&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>
 
 
                     

@@ -14,3 +14,4 @@ $update = mysqli_query($koneksi, "UPDATE karyawan SET nama='$nama', alamat='$ala
 
 echo"<script>alert('Data Telah Diperbaharui')</script>";
 echo"<script>location.href='karyawan.php'</script>";
+?>
