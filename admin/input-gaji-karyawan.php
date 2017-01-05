@@ -245,7 +245,7 @@ $_SESSION['start_time'] = time();
               ") or die(mysqli_error());
 
 						if($insert){
-							echo "<script>alert('Data Gaji Karyawan Berhasil dimasukan!'); window.location = 'manajemen-gaji-karyawan.php?&kd=".$_GET['kd']."'</script>";
+							echo "<script>alert('Data Gaji Karyawan Berhasil dimasukan!'); window.location = 'manajemen-gaji-karyawan.php?&kd=".$_POST['nik']."'</script>";
 						}else{ 
 							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Ups, Data Gaji Gagal Di simpan !</div>';
 						}
@@ -525,7 +525,8 @@ $_SESSION['start_time'] = time();
                               <label class="col-sm-2 col-sm-2 control-label"></label>
                               <div class="col-sm-10">
                                   <input type="submit" name="input" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
-	                              <a href="input-gaji1.php" class="btn btn-sm btn-danger">Batal </a>
+	                              <a href="manajemen-gaji.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-danger">Batal </a>
+                                
                               </div>
                           </div>
                       </form>
