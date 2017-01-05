@@ -44,7 +44,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="gaji.php"><i class="fa fa-angle-double-right"></i> Data Gaji Karyawan</a></li>
-                                <li><a href="input-gaji1.php"><i class="fa fa-angle-double-right"></i> Input Gaji Karyawan</a></li>
+                                <li><a href="manajemen-gaji.php"><i class="fa fa-angle-double-right"></i> Input Gaji Karyawan</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
