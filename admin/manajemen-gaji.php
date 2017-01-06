@@ -114,7 +114,7 @@ $_SESSION['start_time'] = time();
                     <div class="row">
                     
               <div class="col-lg-4">
-              <form action='karyawan.php' method="POST">
+              <form action='manajemen-gaji.php' method="POST">
           
 	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNik' placeholder='Cari berdasarkan Nik '  /> 
            <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNama' placeholder='Cari  Nama '  />
@@ -242,7 +242,7 @@ $_SESSION['start_time'] = time();
                       <td><center>
                       <div id="thanks">
                       <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>
-                        
+
                       </center>
                       </td>
                     </tr>
