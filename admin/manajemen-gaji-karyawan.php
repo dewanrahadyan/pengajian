@@ -125,6 +125,8 @@ $_SESSION['start_time'] = time();
            <div class="text-right">
            <a href="input-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>"  class="btn btn-sm btn-warning"> 
                   Tambah Gaji  <i class="fa fa-arrow-circle-right"></i></a>
+
+                  <a href="manajemen-gaji.php" class="btn btn-sm btn-danger">Kembali </a>
               
                 </div>
                     <br />
@@ -159,7 +161,7 @@ $_SESSION['start_time'] = time();
 
 <th><center>Kode Gaji</center></th>
 <th><center>Gaji Bulan</center></th>
-<th><center>Gaji Tahun</center></th>
+
 
 <th><center>Gaji Pokok</center></th>
 <th><center>Tunjangan Jabatan</center></th>
@@ -186,16 +188,33 @@ $_SESSION['start_time'] = time();
                     <tr>
                       
                       <td><center><?php echo $data['kd_gaji']; ?></center></td>
-                      <td><center><?php echo $data['gaji_bulan']; ?></center></td>
-                      <td><center><?php echo $data['gaji_tahun']; ?></center></td>
-                      <td><center><?php echo $data['gaji_pokok']; ?></center></td>
-                      <td><center><?php echo $data['tunjangan']; ?></center></td>
-                      <td><center><?php echo $data['premi_hadir']; ?></center></td>
-                      <td><center><?php echo $data['tunjangan_konsumsi']; ?></center></td>
-                      <td><center><?php echo $data['tunjangan_jamsostek']; ?></center></td>
-                      <td><center><?php echo $data['uang_lembur']; ?></center></td>
-                      <td><center><?php echo $data['take_home_pay']; ?></center></td>
-                      <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Gaji" href="edit-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-edit"></span></a>  
+                      <td><center>
+                      <B>
+                      
+                      <a title="Detail Gaji" href="
+                       detail-gaji.php?hal=show&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>">
+                      <?php echo $data['gaji_bulan']." - ".$data['gaji_tahun']; ?>
+                      </a>
+                      
+                      </B>
+                      </center></td>
+                      <td><center>Rp. <?php echo number_format($data['gaji_pokok'],2,",",".");?></center></td>
+                      
+                      <td><center>Rp. <?php echo number_format($data['tunjangan'],2,",",".");?></center></td>
+                      <td><center>Rp. <?php echo number_format($data['premi_hadir'],2,",",".");?></center></td>
+                      <td><center>Rp. <?php echo number_format($data['tunjangan_konsumsi'],2,",",".");?></center></td>
+                      <td><center>Rp. <?php echo number_format($data['tunjangan_jamsostek'],2,",",".");?></center></td>
+                      <td><center>Rp. <?php echo number_format($data['uang_lembur'],2,",",".");?></center></td>
+                      <td><center>Rp. <?php echo number_format($data['take_home_pay'],2,",",".");?></center></td>
+                      <td><center>
+
+                      <div id="thanks">
+                      <a class="btn btn-sm btn-success" data-placement="bottom" data-toggle="tooltip" title="Detail Gaji" href="
+                       detail-gaji.php?hal=show&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-folder-open"></span></a>  
+
+                      <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Gaji" href="edit-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-edit"></span></a>  
+
+
                       <a onclick="return confirm ('Yakin hapus data?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Gaji" href="manajemen-gaji-karyawan.php?hal=hapus&kd=<?php echo $_GET['kd'];?>&kd_gaji=<?php echo 
                       $data['kd_gaji'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>
 

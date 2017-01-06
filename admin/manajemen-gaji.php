@@ -135,7 +135,7 @@ $_SESSION['start_time'] = time();
               <option value="Lainnya">Lainnya</option>
             </select>
 
-            <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='karyawan.php' class="btn btn-sm btn-success" >
+            <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='manajemen-gaji.php' class="btn btn-sm btn-success" >
 
            Refresh</i></a>
           	</div>
@@ -207,6 +207,7 @@ $_SESSION['start_time'] = time();
                         <th><center>Nik </i></center></th>
                         <th><center>Nama </center></th>
                         <th><center>Departemen </center></th>                       
+                        <th><center>Input Gaji Terakhir</center></th>
                         <th><center>Tools</center></th>
                       </tr>
                   </thead>
@@ -218,9 +219,30 @@ $_SESSION['start_time'] = time();
                     <tr>
                       <td><center><?php echo $no; ?></center></td>
                       <td><center><?php echo $data['nik'];?></center></td>
+
                       <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
                       <td><center><?php echo $data['departemen']; ?></center></td>
-                      <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>  
+                      <td><center>
+
+                      <?php 
+                      $input_terakhir="select gaji_bulan,gaji_tahun from gajian where nik = ".$data['nik'];
+                      $tampil2=mysqli_query($koneksi, $input_terakhir) or die(mysqli_error());
+                      $data2=mysqli_fetch_array($tampil2);
+                      echo $data2['gaji_bulan']." ".$data2['gaji_tahun'];;
+                      
+
+
+                      ?>
+                        
+
+                      </center></td>
+                      
+
+                      
+                      <td><center>
+                      <div id="thanks">
+                      <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>
+                        
                       </center>
                       </td>
                     </tr>
