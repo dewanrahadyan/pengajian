@@ -154,7 +154,7 @@ $_SESSION['start_time'] = time();
                                 <div class="icon">
                                     <span class="glyphicon glyphicon-list"></span>
                                 </div>
-                                <a href="gaji.php" class="small-box-footer">
+                                <a href="manajemen-gaji.php" class="small-box-footer">
                                     Lihat Detail Gaji <span class="glyphicon glyphicon-chevron-right"></span>
                                 </a>
                             </div>
@@ -275,18 +275,8 @@ $_SESSION['start_time'] = time();
                                                     </div>
                                                     <?php } ?>
                                                     
-                                                    <?php
-                                                $tampil2=mysqli_query($koneksi, "select * from departemen order by kd_dept desc limit 1");
-                                                while($data4=mysqli_fetch_array($tampil2)){
-                                                ?>
-                                                    <div class="alert alert-block alert-info">
-                                                        <button data-dismiss="alert" class="close close-sm" type="button">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                        <strong>Nik <?php echo $data4['nik'];?></strong>, Merupakan bagian dari departement <strong><?php echo $data4['departemen'];?></strong>
-                                                    </div>
-                                                    <?php } ?>
                                                     
+                                                    <!--hapus>
                                                     <?php
                                                 $tampil3=mysqli_query($koneksi, "select * from gajian order by kd_gaji desc limit 1");
                                                 while($data5=mysqli_fetch_array($tampil3)){
@@ -298,56 +288,9 @@ $_SESSION['start_time'] = time();
                                                         Gaji Bulan <strong><?php echo $data5['gaji_bulan'];?></strong>, Telah di transfer tanggal <strong><?php echo $data5['tgl_transfer'];?></strong>
                                                     </div>
                                                     <?php } ?>
+                                                    </hapus-->
                                                     
-                     <!--   <div class="panel panel-default">
-                        <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user"></i> Data Admin </h3> 
-                        </div>
-                        <div class="panel-body">
-                       <!-- <div class="table-responsive"> -->
-                    <?php
-                    //$query2="select * from user order by user_id desc limit 5";
-                    //$hasil1=mysqli_query($koneksi, $query2) or die(mysqli_error());
-                    ?>
-                  <!-- <table id="example" class="table table-hover table-bordered">
-                  <thead>
-                      <tr>
-                        <th><center>No </center></th>
-                        <th><center>Fullname </center></th>
-                        <th><center>level </center></th>
-                      </tr>
-                  </thead>
-                     <?php 
-                    // $no=0;
-                     //while($data1=mysqli_fetch_array($hasil1))
-                    //{ $no++; ?>
-                    <tbody>
-                    <tr>
-                    <td><center><?php //echo $no; ?></center></td>
-                    <td><center><a href="detail-admin.php?hal=edit&kd=<?php //echo $data1['user_id'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data1['fullname']; ?></a></center></td>
-                    <td><center><?php 
-                           /** if($data1['level'] == 'admin'){
-								echo '<span class="label label-success">Admin</span>';
-							}
-                            else if ($data1['level'] == 'superuser' ){
-								echo '<span class="label label-primary">Super User</span>';
-							}
-                            else if ($data1['level'] == 'user' ){
-								echo '<span class="label label-info">User</span>';
-							} **/
-                             ?></center></td>
-                    </tr></div>
-                 <?php   
-              //} 
-              ?>
-                   </tbody>
-                   </table>
-                  <!-- </div>-->
-               <!-- <div class="text-right">
-                  <a href="admin.php" class="btn btn-sm btn-info">Menu Admin <i class="fa fa-arrow-circle-right"></i></a>
-              
-                </div>
-              </div> -->
+                     
                         </section><!-- right col -->
                     </div><!-- /.row (main row) -->
 
