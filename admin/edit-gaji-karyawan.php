@@ -306,28 +306,28 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Hadir</label>
                                 <div class="col-sm-3">
-                                  <input name="hadir" type="text" id="hadir" value="<?php echo $row['hadir']; ?>"class="form-control" autocomplete="off" placeholder="Masukkan jumlah hari hadir" required="required"/>
+                                  <input name="hadir" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="hadir" value="<?php echo $row['hadir']; ?>"class="form-control" autocomplete="off" placeholder="Masukkan jumlah hari hadir" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Telat</label>
                                 <div class="col-sm-3">
-                                  <input name="telat" type="text" id="telat" value="<?php echo $row['telat']; ?>" class="form-control" autocomplete="off" placeholder="Masukkan jumlah hari telat" required="required"/>
+                                  <input name="telat" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="telat" value="<?php echo $row['telat']; ?>" class="form-control" autocomplete="off" placeholder="Masukkan jumlah hari telat" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tidak Hadir</label>
                                 <div class="col-sm-3">
-                                  <input name="tidak_hadir" type="text" id="tidak_hadir" value="<?php echo $row['tidak_hadir']; ?>" class="form-control" autocomplete="off" placeholder="Masukkan jumlah hari tidak hadir" required="required"/>
+                                  <input name="tidak_hadir" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="tidak_hadir" value="<?php echo $row['tidak_hadir']; ?>" class="form-control" autocomplete="off" placeholder="Masukkan jumlah hari tidak hadir" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gaji Pokok</label>
                                 <div class="col-sm-3">
-                                  <input name="gaji_pokok" type="text" id="" value="<?php echo $data['gaji_pokok']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
+                                  <input name="gaji_pokok" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="" value="<?php echo $data['gaji_pokok']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
                                  
                                 </div>
                           </div>
@@ -335,7 +335,7 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tunjangan Jabatan</label>
                                 <div class="col-sm-3">
-                                  <input name="tunjangan_jabatan" type="text" id="tunjangan_jabatan" value="<?php echo $data['tunjangan']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
+                                  <input name="tunjangan_jabatan" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="tunjangan_jabatan" value="<?php echo $data['tunjangan']; ?>" class="form-control" autocomplete="off" readonly="readonly" />
                                   
                                 </div>
 
@@ -344,49 +344,49 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Premi Hadir</label>
                                 <div class="col-sm-3">
-                                  <input name="premi_hadir" type="text" id="premi_hadir" value="<?php echo $row['premi_hadir']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="premi_hadir" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="premi_hadir" value="<?php echo $row['premi_hadir']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tunjangan Konsumsi</label>
                                 <div class="col-sm-3">
-                                  <input name="tunjangan_konsumsi" type="text" id="tunjangan_konsumsi" value="<?php echo $row['tunjangan_konsumsi']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="tunjangan_konsumsi" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="tunjangan_konsumsi" value="<?php echo $row['tunjangan_konsumsi']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Komisi Penjualan</label>
                                 <div class="col-sm-3">
-                                  <input name="komisi_penjualan" type="text" id="komisi_penjualan" value="<?php echo $row['komisi_penjualan']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="komisi_penjualan" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="komisi_penjualan" value="<?php echo $row['komisi_penjualan']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Komisi BSC</label>
                                 <div class="col-sm-3">
-                                  <input name="komisi_bsc" type="text" id="komisi_bsc" value="<?php echo $row['komisi_bsc']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="komisi_bsc" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="komisi_bsc" value="<?php echo $row['komisi_bsc']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Barang Berkomisi</label>
                                 <div class="col-sm-3">
-                                  <input name="barang_berkomisi" type="text" id="barang_berkomisi" value="<?php echo $row['barang_berkomisi']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="barang_berkomisi" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="barang_berkomisi" value="<?php echo $row['barang_berkomisi']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tunjangan Jamsostek Tenaga Kerja</label>
                                 <div class="col-sm-3">
-                                  <input name="tunjangan_jamsostek" type="text" id="tunjangan_jamsostek" value="<?php echo $row['tunjangan_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="tunjangan_jamsostek" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="tunjangan_jamsostek" value="<?php echo $row['tunjangan_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Uang Lembur</label>
                                 <div class="col-sm-3">
-                                  <input name="uang_lembur" type="text" id="uang_lembur" value="<?php echo $row['uang_lembur']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="uang_lembur" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="uang_lembur" value="<?php echo $row['uang_lembur']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
@@ -395,28 +395,28 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gaji Bruto</label>
                                 <div class="col-sm-3">
-                                  <input name="gaji_bruto" type="text" id="gaji_bruto" value="<?php echo $row['gaji_bruto']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="gaji_bruto" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="gaji_bruto" value="<?php echo $row['gaji_bruto']; ?>" class="form-control" autocomplete="off" placeholder="" readonly="true" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Setor ke Jamsostek Tenaga Kerja</label>
                                 <div class="col-sm-3">
-                                  <input name="setor_jamsostek" type="text" id="setor_jamsostek" value="<?php echo $row['setor_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="setor_jamsostek" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="setor_jamsostek" value="<?php echo $row['setor_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Jamsostek Tenaga Kerja</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_jamsostek" type="text" id="pot_jamsostek" value="<?php echo $row['pot_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_jamsostek" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_jamsostek" value="<?php echo $row['pot_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gaji Netto</label>
                                 <div class="col-sm-3">
-                                  <input name="gaji_netto" type="text" id="gaji_netto" value="<?php echo $row['gaji_netto']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="gaji_netto" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="gaji_netto" value="<?php echo $row['gaji_netto']; ?>" class="form-control" autocomplete="off" placeholder="" required="required" readonly="true"/>
                                 </div>
                           </div>
 
@@ -425,54 +425,54 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Telat</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_telat" type="text" id="pot_telat" value="<?php echo $row['pot_telat']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_telat" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_telat" value="<?php echo $row['pot_telat']; ?>" class="form-control" autocomplete="off" placeholder="" required="required" readonly="true"/>
                                 </div>                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Tidak Hadir</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_tidak_hadir" type="text" id="pot_tidak_hadir" value="<?php echo $row['pot_tidak_hadir']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_tidak_hadir" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_tidak_hadir" value="<?php echo $row['pot_tidak_hadir']; ?>" class="form-control" autocomplete="off" placeholder="" required="required" readonly="true"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Premi Hadir</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_premi_hadir" type="text" id="pot_premi_hadir" value="<?php echo $row['pot_premi_hadir']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_premi_hadir" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_premi_hadir" value="<?php echo $row['pot_premi_hadir']; ?>" class="form-control" autocomplete="off" placeholder="" required="required" />
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan ITU</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_itu" type="text" id="pot_itu" value="<?php echo $row['pot_itu']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_itu" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_itu" value="<?php echo $row['pot_itu']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Iuran Wajib</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_iuran_wajib" type="text" id="pot_iuran_wajib" value="<?php echo $row['pot_iuran_wajib']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_iuran_wajib" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_iuran_wajib" value="<?php echo $row['pot_iuran_wajib']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Iuran Sukarela</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_iuran_sukarela" type="text" id="pot_iuran_sukarela" value="<?php echo $row['pot_iuran_sukarela']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_iuran_sukarela" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_iuran_sukarela" value="<?php echo $row['pot_iuran_sukarela']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Iuran Koperasi</label>
                                 <div class="col-sm-3">
-                                  <input name="pot_iuran_koperasi" type="text" id="pot_iuran_koperasi" value="<?php echo $row['pot_iuran_koperasi']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="pot_iuran_koperasi" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_iuran_koperasi" value="<?php echo $row['pot_iuran_koperasi']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Biaya Administrasi Payroll</label>
                                 <div class="col-sm-3">
-                                  <input name="biaya_adm" type="text" id="biaya_adm" value="<?php echo $row['biaya_adm']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="biaya_adm" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="biaya_adm" value="<?php echo $row['biaya_adm']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
 
@@ -481,7 +481,7 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Take Home Pay</label>
                                 <div class="col-sm-3">
-                                  <input name="take_home_pay" type="text" id="take_home_pay" value="<?php echo $row['take_home_pay']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
+                                  <input name="take_home_pay" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="take_home_pay" value="<?php echo $row['take_home_pay']; ?>" class="form-control" autocomplete="off" placeholder="" required="required" readonly="true"/>
                                 </div>
                           </div>
 
@@ -543,22 +543,77 @@ $_SESSION['start_time'] = time();
     
     <script type="text/javascript">
     function hitung_gaji() {
-var absensi = document.transfer.absensi.value;
-var gaji = document.transfer.gaji.value;
-var tunjangan = document.transfer.tunjangan.value;
-var uang_makan = document.transfer.uang_makan.value;
-var uang_transport = document.transfer.uang_transport.value;
-var thr = document.transfer.thr.value;
-var total = document.transfer.total.value;
+      
+var hadir =  document.transfer.hadir.value;
 
-uang_makan = 10000 * absensi;
-document.transfer.tunjagnan_konsumsi.value = Math.floor( uang_makan );
 
-uang_transport = 15000 * absensi;
-document.transfer.premi_hadir.value = Math.floor( uang_transport );
+var gaji_pokok = document.transfer.gaji_pokok.value;
+var tunjangan_jabatan = document.transfer.tunjangan_jabatan.value;
+var tunjangan_konsumsi = document.transfer.tunjangan_konsumsi.value;
+var premi_hadir = document.transfer.premi_hadir.value;
 
-total =  ((gaji - tunjangan ) + (2 * tunjangan)) + (uang_makan + uang_transport) + ((thr - thr) + (1 * thr));
-document.transfer.total.value = Math.floor( total);
+var komisi_penjualan = document.transfer.komisi_penjualan.value;
+var komisi_bsc = document.transfer.komisi_bsc.value;
+var barang_berkomisi = document.transfer.barang_berkomisi.value;
+var tunjangan_jamsostek = document.transfer.tunjangan_jamsostek.value;
+var uang_lembur = document.transfer.uang_lembur.value;
+
+var gaji_bruto = parseInt(gaji_pokok) + parseInt(tunjangan_jabatan) + parseInt(tunjangan_konsumsi) + parseInt(premi_hadir) + parseInt(komisi_penjualan) + parseInt(komisi_bsc) + parseInt(barang_berkomisi) + parseInt(tunjangan_jamsostek) + parseInt(uang_lembur);
+//var gaji_bruto = parseInt(gaji_pokok) + parseInt(tunjangan_jabatan)
+document.transfer.gaji_bruto.value =  Math.floor( gaji_bruto );
+
+
+var pot_jamsostek = document.transfer.pot_jamsostek.value;
+var setor_jamsostek = document.transfer.setor_jamsostek.value;
+
+var gaji_netto =  parseInt(gaji_bruto) - parseInt(setor_jamsostek) - parseInt(pot_jamsostek);
+document.transfer.gaji_netto.value =  Math.floor( gaji_netto );
+
+
+
+
+var telat = document.transfer.telat.value;
+var tidak_hadir = document.transfer.tidak_hadir.value;
+
+var pot_telat = telat * 7500;
+document.transfer.pot_telat.value = Math.floor( pot_telat );
+
+
+var pot_tidak_hadir = tidak_hadir * 107500
+document.transfer.pot_tidak_hadir.value = Math.floor( pot_tidak_hadir );
+
+
+//var thr = document.transfer.thr.value;
+//var total = document.transfer.total.value;
+
+tunjangan_konsumsi = 10000 * hadir;
+document.transfer.tunjangan_konsumsi.value = Math.floor( tunjangan_konsumsi );
+
+premi_hadir = 15000 * hadir;
+document.transfer.premi_hadir.value = Math.floor( premi_hadir );
+
+
+
+var pot_premi_hadir= document.transfer.pot_premi_hadir.value; 
+var pot_itu= document.transfer.pot_itu.value; 
+var pot_iuran_wajib= document.transfer.pot_iuran_wajib.value;
+var pot_iuran_sukarela= document.transfer.pot_iuran_sukarela.value;
+var pot_iuran_koperasi= document.transfer.pot_iuran_koperasi.value;
+var biaya_adm= document.transfer.biaya_adm.value;
+
+var take_home_pay = parseInt(gaji_netto) -  parseInt(pot_telat) - parseInt(pot_tidak_hadir) -parseInt(pot_premi_hadir) -parseInt(pot_itu) -parseInt(pot_iuran_wajib) -parseInt(pot_iuran_sukarela) -parseInt(pot_iuran_koperasi) -parseInt(biaya_adm);
+
+document.transfer.take_home_pay.value = Math.floor( take_home_pay);
+
+
+
+
+
+
+
+//alert(premi_hadir);
+//total =  ((gaji_pokok - tunjangan_jabatan ) + (2 * tunjangan_jabatan)) + (uang_makan + uang_transport) + ((thr - thr) + (1 * thr));
+//document.transfer.total.value = Math.floor( total);
 
 }
 </script>
