@@ -144,16 +144,16 @@ $_SESSION['start_time'] = time();
                     <br />
                     <!-- Main row -->
                     <?php
-            $query = mysqli_query($koneksi, "SELECT karyawan.nama, karyawan.status, departemen.departemen, departemen.jabatan, gajian.kd_gaji, gajian.nik, gajian.gaji_bulan, gajian.gaji_tahun, gajian.tgl_transfer, gajian.absensi, gajian.sakit, gajian.cuti, gajian.gaji, gajian.tunjangan, gajian.uang_makan, gajian.uang_transport, gajian.thr, gajian.total                                           
-                                             FROM karyawan, departemen, gajian
-                                             WHERE gajian.nik=karyawan.nik AND karyawan.nik=departemen.nik AND gajian.nik='$_GET[kd]'");
+            $query = mysqli_query($koneksi, "SELECT *                                           
+                                             FROM gajian inner join karyawan on gajian.nik = karyawan.nik
+                                             WHERE kd_gaji='$_GET[kd_gaji]'");
             $data  = mysqli_fetch_array($query);
             ?>
                     <div class="row">
                         <div class="col-lg-12">
                         <div class="panel panel-success">
                         <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user"></i> Detail Data Karyawan </h3> 
+                        <h3 class="panel-title"><i class="fa fa-user"></i> Detail Gaji Karyawan </h3> 
                         </div>
                         <div class="panel-body">
                   <div class="form-panel">
@@ -170,10 +170,7 @@ $_SESSION['start_time'] = time();
                       <td>Departemen</td>
                       <td><?php echo $data['departemen']; ?></td>
                       </tr>
-                      <tr>
-                      <td>Jabatan</td>
-                      <td><?php echo $data['jabatan']; ?></td>
-                      </tr>
+                      
                       <tr>
                       <td>Status</td></td>
                       <td><?php
@@ -196,49 +193,133 @@ $_SESSION['start_time'] = time();
                       <td>Gaji Bulan</td>
                       <td><?php echo $data['gaji_bulan']; ?> - <?php echo $data['gaji_tahun']; ?></td>
                       </tr>
-                      <tr>
-                      <td>Tanggal Transfer</td>
-                      <td><?php echo $data['tgl_transfer']; ?></td>
-                      </tr>
+                    
                       <tr>
                       <td>Hadir</td>
-                      <td><?php echo $data['absensi']; ?> </td>
+                      <td><?php echo $data['hadir']; ?> </td>
                       </tr>
                       <tr>
-                      <td>Sakit</td>
-                      <td><?php echo $data['sakit']; ?> </td>
+                      <td>Telat</td>
+                      <td><?php echo $data['telat']; ?> </td>
                       </tr>
                       <tr>
-                      <td>Cuti</td>
-                      <td><?php echo $data['cuti']; ?></td>
+                      <td>Tidak Hadir</td>
+                      <td><?php echo $data['tidak_hadir']; ?> </td>
                       </tr>
+                      <tr>
+                      
                       <tr>
                       <td>Gaji Pokok</td>
-                      <td>Rp. <?php echo number_format($data['gaji'],2,",",".");?></td>
+                      <td>Rp. <?php echo number_format($data['gaji_pokok'],2,",",".");?></td>
                       </tr>
-                      <tr>
-                      <td>Tunjangan</td>
+
+                       <tr>
+                      <td>Tunjangan Jabatan </td>
                       <td>Rp. <?php echo number_format($data['tunjangan'],2,",",".");?></td>
                       </tr>
+
                       <tr>
-                      <td>Uang Makan</td>
-                      <td>Rp. <?php echo number_format($data['uang_makan'],2,",",".");?></td>
+                      <td>Premi Hadir </td>
+                      <td>Rp. <?php echo number_format($data['premi_hadir'],2,",",".");?></td>
+                      </tr>
+                      
+                      <tr>
+                      <td>Tunjangan Konsumsi  </td>
+                      <td>Rp. <?php echo number_format($data['tunjangan_konsumsi'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Komisi Penjualan  </td>
+                      <td>Rp. <?php echo number_format($data['komisi_penjualan'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Komisi BSC  </td>
+                      <td>Rp. <?php echo number_format($data['komisi_bsc'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Barang Berkomisi  </td>
+                      <td>Rp. <?php echo number_format($data['barang_berkomisi'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Tunjangan Jamsostek Tenaga Kerja  </td>
+                      <td>Rp. <?php echo number_format($data['tunjangan_jamsostek'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Uang Lembur </td>
+                      <td>Rp. <?php echo number_format($data['uang_lembur'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Gaji Bruto </td>
+                      <td>Rp. <?php echo number_format($data['gaji_bruto'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td>Setor ke Jamsostek Tenaga Kerja </td>
+                      <td>Rp. <?php echo number_format($data['setor_jamsostek'],2,",",".");?></td>
                       </tr>
                       <tr>
-                      <td>Uang Transport</td>
-                      <td>Rp. <?php echo number_format($data['uang_transport'],2,",",".");?></td>
+                      <td>Potongan Jamsostek Tenaga Kerja </td>
+                      <td>Rp. <?php echo number_format($data['pot_jamsostek'],2,",",".");?></td>
                       </tr>
                       <tr>
-                      <td>THR</td>
-                      <td>Rp. <?php echo number_format($data['thr'],2,",",".");?></td>
+                      <td>Gaji Netto </td>
+                      <td>Rp. <?php echo number_format($data['gaji_netto'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan Telat </td>
+                      <td>Rp. <?php echo number_format($data['pot_telat'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan Tidak Hadir </td>
+                      <td>Rp. <?php echo number_format($data['pot_tidak_hadir'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan Premi Hadir </td>
+                      <td>Rp. <?php echo number_format($data['pot_premi_hadir'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan ITU </td>
+                      <td>Rp. <?php echo number_format($data['pot_itu'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan Iuran Wajib </td>
+                      <td>Rp. <?php echo number_format($data['pot_iuran_wajib'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan Iuran Sukarela </td>
+                      <td>Rp. <?php echo number_format($data['pot_iuran_sukarela'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Potongan Iuran Koperasi</td>
+                      <td>Rp. <?php echo number_format($data['pot_iuran_koperasi'],2,",",".");?></td>
+                      </tr>
+                      <tr>
+                      <td>Biaya Administrasi </td>
+                      <td>Rp. <?php echo number_format($data['biaya_adm'],2,",",".");?></td>
                       </tr>
                       <tr>
                       <td>Take Home Pay</td>
-                      <td>Rp. <?php echo number_format($data['total'],2,",",".");?></td>
+                      <td>Rp. <?php echo number_format($data['take_home_pay'],2,",",".");?></td>
                       </tr>
+
+
+
+
+                      
+
+ 
+                
                       </table>
                       <div class="text-right">
-                  <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="cetak-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-print"></span></a> <a href="gaji.php" class="btn btn-sm btn-warning">Kembali <i class="fa fa-arrow-circle-right"></i></a>
+                  <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="cetak-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-print"></span></a> 
+
+<a href="manajemen-gaji-karyawan.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-warning">
+                  Kembali <i class="fa fa-arrow-circle-right"></i></a>
               
                 </div>
                   </div>
