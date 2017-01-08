@@ -64,7 +64,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="print-karyawan.php"><i class="fa fa-angle-double-right"></i> Laporan Data karyawan</a></li>
-                                <li><a href="laporan-gaji.php"><i class="fa fa-angle-double-right"></i> Laporan Gaji Karyawan </a></li>
+                                <li><a href="print-gaji.php"><i class="fa fa-angle-double-right"></i> Laporan Gaji Karyawan </a></li>
                                 
                                 ></li>
                             </ul>

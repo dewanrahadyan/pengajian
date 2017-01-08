@@ -137,15 +137,16 @@ $_SESSION['start_time'] = time();
                         <div class="panel-body">
                        <!-- <div class="table-responsive"> -->
                     <?php
-                    $query1="select * from gajian limit 40";
+                    $query1="select * from gajian inner join karyawan on gajian.nik = karyawan.nik  limit 40";
                     
-                    if(isset($_POST['tglawal']) && isset($_POST['tglakhir'])){
-	               $tglawal=$_POST['tglawal'];
-                   $tglakhir=$_POST['tglakhir'];
+                    if(isset($_POST['bulan']) && isset($_POST['tahun'])){
+	               $bulan=$_POST['bulan'];
+                   $tahun=$_POST['tahun'];
                    
 	               $query1="SELECT * FROM  gajian
-	               where (tgl_transfer between '$tglawal'
-	               and '$tglakhir')  ";
+	               where gaji_bulan = $bulan
+	               and gaji_tahun = $bulan
+                   ";
                    }
                     $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                     ?>
@@ -154,9 +155,11 @@ $_SESSION['start_time'] = time();
                       <tr>
                         <th><center>No </center></th>
                         <th><center>Nik </i></center></th>
+                        <th><center>Nama </i></center></th>
+                        <th><center>Departemen </i></center></th>
                         <th><center>Bulan </center></th>
                         <th><center>Tahun </center></th>
-                        <th><center>Transfer </center></th>
+                        
                         <th><center>Total Gaji</center></th>
                         <th><center>Tools</center></th>
                       </tr>
@@ -169,11 +172,15 @@ $_SESSION['start_time'] = time();
                     <tr>
                     <td><center><?php echo $no; ?></center></td>
                     <td><center><a href="detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nik'];?></center></td>
+                    <td><center><?php echo $data['nama']; ?></center></td>
+                    <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php echo $data['gaji_bulan']; ?></center></td>
+                    
                     <td><center><?php echo $data['gaji_tahun']; ?></center></td>
-                    <td><center><?php echo $data['tgl_transfer']; ?></center></td>
-                    <td><center>Rp. <?php echo number_format($data['total'],2,",",".");?></center></td>
-                    <td><center><div id="thanks"><a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="cetak-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-print"></span></a></td></tr></div>
+                    
+                    <td><center>Rp. <?php echo number_format($data['take_home_pay'],2,",",".");?></center></td>
+                    
+                    <td><center><div id="thanks"> <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-print"></span></a> </td></tr></div>
                  <?php   
               } 
               ?>
