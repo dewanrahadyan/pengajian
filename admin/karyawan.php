@@ -72,6 +72,8 @@ $_SESSION['start_time'] = time();
                 </div>
             </nav>
         </header>
+
+
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <?php include "sidebar.php"; ?>
@@ -112,6 +114,8 @@ $_SESSION['start_time'] = time();
 
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
+
+
                     
               <div class="col-lg-4">
               <form action='karyawan.php' method="POST">
@@ -145,6 +149,11 @@ $_SESSION['start_time'] = time();
                     <!-- Main row -->
                     <div class="row">
                         <div class="col-lg-12">
+
+                        <div class="text-right">
+                  <a href="input-karyawan.php" class="btn btn-sm btn-warning">Tambah Karyawan <i class="fa fa-arrow-circle-right"></i></a>
+              <BR></BR>
+                </div>
                     <div class="panel panel-success">
                         <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
@@ -183,9 +192,7 @@ $_SESSION['start_time'] = time();
 
                                 $cariNama = " ".$hubung1." nama like '%$qNama%'";
 
-                        
-                        
-                                
+                         
                            }
                            if(!empty($_POST["qDepartemen"]) )
                            {
@@ -199,23 +206,21 @@ $_SESSION['start_time'] = time();
                                 
                            }
 
-                          
                            
                            
                     }
                    
                     
-
-                 //  $caridepartemen = $_GET['caridepartemen'];
-	               //$query1="SELECT * FROM karyawan 
-	               //where nik like '%$qcari%'
-	               //or nama like '%$qcari%'  ";
-                    
+ 
                      $query1="select * from karyawan ".$whereis."  ".$cariNIK."  ".$cariNama." ".$cariDepartemen; 
                   
 
                     $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                     ?>
+
+
+ 
+
                   <table id="example" class="table table-hover table-bordered">
                   <thead>
                       <tr>
@@ -264,10 +269,7 @@ $_SESSION['start_time'] = time();
                    </tbody>
                    </table>
                   <!-- </div>-->
-                <div class="text-right">
-                  <a href="input-karyawan.php" class="btn btn-sm btn-warning">Tambah Karyawan <i class="fa fa-arrow-circle-right"></i></a>
-              
-                </div>
+               
               </div> 
               </div>
             </div><!-- col-lg-12--> 

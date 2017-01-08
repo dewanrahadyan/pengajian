@@ -12,9 +12,9 @@ require('../conn.php');
 //$result=mysql_query("SELECT * FROM daily_bbri where date like '%$periode%' ");
 $kode = $_GET['kd'];
                     
-$result = mysqli_query($koneksi, "SELECT karyawan.nama, karyawan.status, departemen.departemen, departemen.jabatan, gajian.kd_gaji, gajian.nik, gajian.gaji_bulan, gajian.gaji_tahun, gajian.tgl_transfer, gajian.absensi, gajian.sakit, gajian.cuti, gajian.gaji, gajian.tunjangan, gajian.uang_makan, gajian.uang_transport, gajian.thr, gajian.total                                           
-                                  FROM karyawan, departemen, gajian
-                                  WHERE gajian.nik=karyawan.nik AND karyawan.nik=departemen.nik AND gajian.nik='$_GET[kd]'");
+$result = mysqli_query($koneksi, "SELECT *             
+                                  FROM gajian inner join gajian on gajian.nik = karyawan.nik 
+                                  WHERE  gajian.kd_gaji='$_GET[kd]'");
             
 
 //Initialize the 3 columns and the total
