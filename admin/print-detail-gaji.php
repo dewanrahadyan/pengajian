@@ -40,7 +40,7 @@ $context = stream_context_create(
 
 
 $url= "http://" . $_SERVER['SERVER_NAME'] ; 
-$content = file_get_contents($url.'/pengajian/admin/pdf-detail-gaji.php', false, $context);
+$content = file_get_contents($url.'/pengajian/admin/pdf-detail-gaji.php?hal=edit&kd='.$_GET['kd'].'&kd_gaji='.$_GET['kd_gaji'], false, $context);
 
 
 //$fileUrl = "http://localhost/pengajian/admin/karyawan.php";
@@ -57,8 +57,11 @@ $content = file_get_contents($url.'/pengajian/admin/pdf-detail-gaji.php', false,
  
 $dompdf = new DOMPDF();
 $dompdf->load_html($content);
+
 $dompdf->set_paper("A4", "portrait");
 $dompdf->render();
+
 $dompdf->stream('laporan_'.$nama.'.pdf');
+die();
  
 ?>

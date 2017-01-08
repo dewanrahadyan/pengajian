@@ -168,7 +168,7 @@ $_SESSION['start_time'] = time();
                     <tbody>
                     <tr>
                     <td><center><?php echo $no; ?></center></td>
-                    <td><center><a href="detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nik'];?></center></td>
+                    <td><center><a href="detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nik'];?></center></td>
                     <td><center><?php echo $data['gaji_bulan']; ?></center></td>
                     <td><center><?php echo $data['gaji_tahun']; ?></center></td>
                     <td><center><?php echo $data['tgl_transfer']; ?></center></td>

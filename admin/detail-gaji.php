@@ -316,7 +316,7 @@ $_SESSION['start_time'] = time();
                 
                       </table>
                       <div class="text-right">
-                  <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-print"></span></a> 
+                  <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-print"></span></a> 
 
 <a href="manajemen-gaji-karyawan.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-warning">
                   Kembali <i class="fa fa-arrow-circle-right"></i></a>
