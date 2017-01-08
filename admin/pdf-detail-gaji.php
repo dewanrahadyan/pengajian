@@ -38,36 +38,47 @@
             <aside >
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
-                        Gaji
-                        <small>Aplikasi Penggajian Karyawan</small>
+                    <h1 align="center">
+                        Laporan
+                        <small align="center">Detail Gaji Karyawan</small>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Gaji</a></li>
-                        <li class="active">Detail Gaji</li>
-                    </ol>
+            
+                     
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
 
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+
+
+                    
+              <div class="col-lg-4">
+              
+          
+           
+            </div>
+              </div>
            <!-- /.row -->
                     <br />
                     <!-- Main row -->
-                    <?php
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                        
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-user"></i> Detail Gaji Karyawan</h3> 
+                        </div>
+                        <div class="panel-body">
+
+                  <?php
             $query = mysqli_query($koneksi, "SELECT *                                           
                                              FROM gajian inner join karyawan on gajian.nik = karyawan.nik
                                              WHERE kd_gaji='$_GET[kd_gaji]'");
             $data  = mysqli_fetch_array($query);
             ?>
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <div class="panel panel-success">
-                        <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user"></i> Detail Gaji Karyawan </h3> 
-                        </div>
-                        <div class="panel-body">
-                  <div class="form-panel">
                       <table id="example" class="table table-hover table-bordered">
                       <tr>
                       <td width="250">Nik</td>
@@ -83,7 +94,7 @@
                       </tr>
                       
                       <tr>
-                      <td>Status</td></td>
+                      <td>Status</td>
                       <td><?php
                             if($data['status'] == 'tetap'){
                 echo '<span class="label label-success">Tetap</span>';
@@ -117,7 +128,7 @@
                       <td>Tidak Hadir</td>
                       <td><?php echo $data['tidak_hadir']; ?> </td>
                       </tr>
-                      <tr>
+                     
                       
                       <tr>
                       <td>Gaji Pokok</td>
@@ -218,30 +229,34 @@
                       <td>Rp. <?php echo number_format($data['take_home_pay'],2,",",".");?></td>
                       </tr>
 
-
-
-
-                      
-
- 
-                
                       </table>
-                      <div class="text-right">
-                  <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Cetak Gaji" href="cetak-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-print"></span></a> 
+                      <br>
+                      <table>
+                          <tr>
+                            <td>Mengetahui</td>
+                            <td>Membuat</td>
+                            <td>Menerima</td> 
+                            </tr>
+                          <tr>
+                            <td>Ketua</td>
+                            <td>Admin</td>
+                            <td></td>                            
+                          </tr>
+                          <tr>
+                            <td>Yuhana N</td>
+                            <td><?php echo $_SESSION['fullname']; ?></td>
+                            <td><?php echo $data['nama']; ?></td>  
+                          </tr>
+                        
 
-<a href="manajemen-gaji-karyawan.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-warning">
-                  Kembali <i class="fa fa-arrow-circle-right"></i></a>
-              
-                </div>
-                  </div>
-                  </div>
-                  </div>
-              </div><!-- col-lg-12--> 
+                      </table>
+                      
+                  </div> 
+              </div>
+            </div><!-- col-lg-12--> 
                     </div><!-- /.row (main row) -->
 
                 </section><!-- /.content -->
-
-<!-------------------------------------------------------------------------------------------------------- >
 
 
 
