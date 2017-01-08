@@ -1,5 +1,6 @@
 <?php 
  include "../conn.php";
+
    
 ?>
 <!DOCTYPE html>
@@ -72,6 +73,7 @@
                         <h3 class="panel-title"><i class="fa fa-user"></i> Detail Gaji Karyawan</h3> 
                         </div>
                         <div class="panel-body">
+
 
                   <?php
             $query = mysqli_query($koneksi, "SELECT *                                           
@@ -233,9 +235,9 @@
                       <br>
                       <table>
                           <tr>
-                            <td>Mengetahui</td>
-                            <td>Membuat</td>
-                            <td>Menerima</td> 
+                            <td width="200">Mengetahui</td>
+                            <td width="200">Membuat</td>
+                            <td width="200">Menerima</td> 
                             </tr>
                           <tr>
                             <td>Ketua</td>
@@ -244,7 +246,7 @@
                           </tr>
                           <tr>
                             <td>Yuhana N</td>
-                            <td><?php echo $_SESSION['fullname']; ?></td>
+                            <td><?php //echo $_SESSION['fullname']; ?></td>
                             <td><?php echo $data['nama']; ?></td>  
                           </tr>
                         
