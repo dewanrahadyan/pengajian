@@ -125,7 +125,7 @@ $_SESSION['start_time'] = time();
 
     //List Data Departemen
      
-    $listDepartemen="select * from departemen";
+    $listDepartemen="select * from karyawan";
     $tampilDepartemen=mysqli_query($koneksi, $listDepartemen) or die(mysqli_error());
                               
                                 

@@ -39,7 +39,7 @@
                         </li-->
                       
 
-                        <li class="active">
+                        <li class="">
                             <a href="manajemen-gaji.php">
 
                             <i class="glyphicon glyphicon-usd"></i> <span>Manajemen Pengajian</span>
