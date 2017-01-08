@@ -63,9 +63,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
+                                <li><a href="print-karyawan.php"><i class="fa fa-angle-double-right"></i> Laporan Data karyawan</a></li>
                                 <li><a href="laporan-gaji.php"><i class="fa fa-angle-double-right"></i> Laporan Gaji Karyawan </a></li>
-                                <li><a href="cetak-karyawan.php"><i class="fa fa-angle-double-right"></i> Laporan Data karyawan</a></li>
-                                <li><a href="cetak-departement.php"><i class="fa fa-angle-double-right"></i> Laporan Data Departement</a></li>
+                                
+                                ></li>
                             </ul>
                         </li>
                     </ul>

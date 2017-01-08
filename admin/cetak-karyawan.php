@@ -11,13 +11,14 @@ require('../conn.php');
 //Select the Products you want to show in your PDF file
 //$result=mysql_query("SELECT * FROM daily_bbri where date like '%$periode%' ");
 
-$result=mysqli_query($koneksi, "SELECT * FROM karyawan ORDER BY nik ASC") or die(mysql_error());
+$result=mysqli_query($koneksi, "SELECT * FROM karyawan group by departemen ORDER BY nik ASC") or die(mysql_error());
 
 //Initialize the 3 columns and the total
 $column_nik = "";
 $column_nama = "";
 $column_alamat = "";
 $column_no_hp = "";
+$column_departemen= "";
 $column_status = "";
 
 
@@ -28,13 +29,16 @@ while($row = mysqli_fetch_array($result))
     $nama = $row["nama"];
     $alamat = $row["alamat"];
     $no_hp = $row["no_hp"];
+    $departemen = $row["departemen"];
     $status = $row["status"];
+
     
 
 	$column_nik = $column_nik.$nik."\n";
     $column_nama = $column_nama.$nama."\n";
     $column_alamat = $column_alamat.$alamat."\n";
     $column_no_hp = $column_no_hp.$no_hp."\n";
+    $column_departemen = $column_departemen.$departemen."\n";
     $column_status = $column_status.$status."\n";
 
 			
@@ -76,6 +80,8 @@ $pdf->Cell(85,8,'Alamat',1,0,'C',1);
 $pdf->SetX(155);
 $pdf->Cell(30,8,'No HP',1,0,'C',1);
 $pdf->SetX(185);
+$pdf->Cell(30,8,'Departemen',1,0,'C',1);
+$pdf->SetX(200);
 $pdf->Cell(20,8,'Status',1,0,'C',1);
 $pdf->Ln();
 
@@ -100,6 +106,10 @@ $pdf->MultiCell(85,6,$column_alamat,1,'L');
 $pdf->SetY($Y_Table_Position);
 $pdf->SetX(155);
 $pdf->MultiCell(30,6,$column_no_hp,1,'C');
+
+$pdf->SetY($Y_Table_Position);
+$pdf->SetX(155);
+$pdf->MultiCell(30,6,$departemen,1,'C');
 
 $pdf->SetY($Y_Table_Position);
 $pdf->SetX(185);
