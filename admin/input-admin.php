@@ -143,17 +143,7 @@ $_SESSION['start_time'] = time();
                                 </div>
                           </div>
                           
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Level</label>
-                                <div class="col-sm-3">
-                                  <select name="level" class="form-control" required>
-                      							<option value=""> -- Pilih Level Pengguna -- </option>
-                      							<option value="admin">Admin</option>
-                      							<option value="superuser">Superuser</option>
-                                    <option value="user">User</option>
-						                      </select>
-                                </div>
-                          </div>
+                          
                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gambar</label>

@@ -61,7 +61,7 @@ $dompdf->load_html($content);
 $dompdf->set_paper("A4", "portrait");
 $dompdf->render();
 
-$dompdf->stream('laporan_'.$nama.'.pdf');
+$dompdf->stream('payroll.pdf');
 die();
  
 ?>

@@ -194,22 +194,6 @@ $_SESSION['start_time'] = time();
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Level</label>
-                                <div class="col-sm-3">
-                                  <select name="level" class="form-control" required>
-                      							<option value=""> -- Pilih Level -- </option>
-                                    <option value="admin"<?=$data['level'] == 'admin' ? ' selected="selected"' : '';?>>Admin</option>
-                                    <option value="superuser"<?=$data['level'] == 'superuser' ? ' selected="selected"' : '';?>>Superuser</option>
-                                    <option value="user"<?=$data['level'] == 'user' ? ' selected="selected"' : '';?>>User</option>
-      						                </select>
-                                </div>
-                              <!-- <label class="col-sm-3 col-sm-3 control-label">Level Sebelumnya : </label>
-                              <div class="col-sm-3">
-                              <span class="label label-primary"><?php echo $data['level'];  ?></span>
-                              </div> -->
-                          </div>
-                          
-                          <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gambar</label>
                                 <div class="col-sm-10">
                                   <img src="<?php echo $data['gambar'];?>" width="245" height="285" class="img-rounded" style="border: 3px solid #888;"/>

@@ -160,7 +160,7 @@ $_SESSION['start_time'] = time();
                       <td>Username</td>
                       <td><?php echo $data['username']; ?></td>
                       <td rowspan="5"><div class="pull-right image">
-                            <img src="<?php echo $data['gambar']; ?>" class="img-rounded" height="300" width="250" alt="User Image" style="border: 2px solid #666;" />
+                            <img src="<?php echo $data['gambar']; ?>" class="img-rounded" height="100%" width="100%" alt="User Image" style="border: 2px solid #666;" />
                         </div></td>
                       </tr>
                       <tr>
@@ -175,10 +175,7 @@ $_SESSION['start_time'] = time();
                       <td>No Handphone</td>
                       <td colspan="1"><?php echo $data['no_hp']; ?></td>
                       </tr>
-                      <tr>
-                      <td>Level</td></td>
-                      <td colspan="1"><?php echo $data['level']; ?></td>
-                      </tr>
+                      
                       </table>
                       <div class="text-right">
                   <a href="admin.php" class="btn btn-sm btn-warning">Kembali <i class="fa fa-arrow-circle-right"></i></a>

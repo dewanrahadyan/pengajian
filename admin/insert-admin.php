@@ -13,14 +13,14 @@ if (!empty($_FILES["nama_file"]["tmp_name"]))
 		$password=$_POST['password'];
         $fullname=$_POST['fullname'];
         $no_hp=$_POST['no_hp'];
-        $level=$_POST['level'];
+        //$level=$_POST['level'];
 		
 	if($jenis_gambar=="image/jpeg" || $jenis_gambar=="image/jpg" || $jenis_gambar=="image/gif" || $jenis_gambar=="image/x-png")
 	{			
 		$gambar = $namafolder . basename($_FILES['nama_file']['name']);		
 		if (move_uploaded_file($_FILES['nama_file']['tmp_name'], $gambar)) {
-			$sql="INSERT INTO user(user_id,username,password,fullname,no_hp,level,gambar) VALUES
-            ('$user_id','$username','$password','$fullname','$no_hp','$level','$gambar')";
+			$sql="INSERT INTO user(user_id,username,password,fullname,no_hp,gambar) VALUES
+            ('$user_id','$username','$password','$fullname','$no_hp','$gambar')";
 			$res=mysqli_query($koneksi, $sql) or die (mysqli_error());
 			
 			echo"<script>alert('Data Berhasil Ditambah')</script>";

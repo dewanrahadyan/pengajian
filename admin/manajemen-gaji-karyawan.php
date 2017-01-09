@@ -148,7 +148,7 @@ $_SESSION['start_time'] = time();
                   <?php
                
                     
-                      $query1="SELECT * FROM gajian INNER JOIN karyawan ON gajian.nik = karyawan.nik WHERE gajian.nik = ".$_GET['kd']; 
+                      $query1="SELECT * FROM gajian INNER JOIN karyawan ON gajian.nik = karyawan.nik WHERE gajian.nik = ".$_GET['kd']." order by kd_gaji asc"; 
                   
                       $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                   ?>

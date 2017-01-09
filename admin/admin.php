@@ -134,7 +134,7 @@ $_SESSION['start_time'] = time();
                         <th><center>Password </center></th>
                         <th><center>Fullname </center></th>
                         <th><center>No Handphone </center></th>
-                        <th><center>level </center></th>
+                        
                         <th><center>Tools</center></th>
                       </tr>
                   </thead>
@@ -149,17 +149,7 @@ $_SESSION['start_time'] = time();
                     <td><center><?php echo $data['password'];?></center></td>
                     <td><center><a href="detail-admin.php?hal=edit&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['fullname']; ?></a></center></td>
                     <td><center><?php echo $data['no_hp'];?></center></td>
-                    <td><center><?php 
-                            if($data['level'] == 'admin'){
-								echo '<span class="label label-success">Admin</span>';
-							}
-                            else if ($data['level'] == 'superuser' ){
-								echo '<span class="label label-primary">Super User</span>';
-							}
-                            else if ($data['level'] == 'user' ){
-								echo '<span class="label label-info">User</span>';
-							}
-                             ?></center></td>
+                    
                     <!--<td><center><img src="<?php //echo $data['gambar']; ?>" class="img-circle" height="80" width="75" style="border: 3px solid #888;" /></center></td>-->
                     <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Admin" href="edit-admin.php?hal=edit&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-edit"></span></a>  
                         <a onclick="return confirm ('Yakin hapus <?php echo $data['fullname'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Admin" href="hapus-admin.php?hal=hapus&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>

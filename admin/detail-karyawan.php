@@ -42,7 +42,8 @@ if (empty($_SESSION['username'])){
         <header class="header">
             <a href="index.php" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                Admin APeK
+                <img src="../img/logo.png" style="margin-top:5px" >
+
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -110,9 +111,11 @@ $_SESSION['start_time'] = time();
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
+                            <br>
                             <img src="<?php echo $_SESSION['gambar']; ?>" class="img-circle" alt="User Image" style="border: 2px solid #3C8DBC;" />
                         </div>
                         <div class="pull-left info">
+                        <br>
                             <p>Selamat Datang,<br /><?php echo $_SESSION['fullname']; ?></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>

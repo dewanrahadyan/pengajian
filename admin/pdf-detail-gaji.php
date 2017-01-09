@@ -38,15 +38,7 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside >
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1 align="center">
-                        Laporan
-                        <small align="center">Detail Gaji Karyawan</small>
-                    </h1>
-            
-                     
-                </section>
-
+                 
                 <!-- Main content -->
                 <section class="content">
 
@@ -68,9 +60,10 @@
                         <div class="col-lg-12">
 
                         
+
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user"></i> Detail Gaji Karyawan</h3> 
+                        
                         </div>
                         <div class="panel-body">
 
@@ -83,53 +76,32 @@
             ?>
                       <table id="example" class="table table-hover table-bordered">
                       <tr>
-                      <td width="250">Nik</td>
-                      <td width="565"><?php echo $data['nik']; ?></td>
+                      <td ><B>BUKTI KAS KELUAR</B></td>
+                      <td ></td>
                       </tr>
                       <tr>
-                      <td >Nama</td>
+                      <td >Dari</td>
+                      <td >PT. AARTI JAYA</td>
+                      </tr>
+
+                      <tr>
+                      <td >Untuk</td>
                       <td ><?php echo $data['nama']; ?></td>
                       </tr>
-                      <tr>
-                      <td>Departemen</td>
-                      <td><?php echo $data['departemen']; ?></td>
-                      </tr>
+                      
+                      
                       
                       <tr>
-                      <td>Status</td>
-                      <td><?php
-                            if($data['status'] == 'tetap'){
-                echo '<span class="label label-success">Tetap</span>';
-              }
-                            else if ($data['status'] == 'kontrak' ){
-                echo '<span class="label label-primary">Kontrak</span>';
-              }
-                            else if ($data['status'] == 'magang' ){
-                echo '<span class="label label-info">Magang</span>';
-              }
-                            else if ($data['status'] == 'outsource' ){
-                echo '<span class="label label-warning">Outsourcing</span>';
-              }
-                    
-                    ?></td>
-                      </tr>
-                      <tr>
-                      <td>Gaji Bulan</td>
-                      <td><?php echo $data['gaji_bulan']; ?> - <?php echo $data['gaji_tahun']; ?></td>
+                      <td></td>
+                      <td>Gaji Bulan <?php echo $data['gaji_bulan']; ?> - <?php echo $data['gaji_tahun']; ?></td>
                       </tr>
                     
                       <tr>
-                      <td>Hadir</td>
-                      <td><?php echo $data['hadir']; ?> </td>
+                      <td><b>Perhitungan Gaji : </b></td>
+                      <td></td>
                       </tr>
-                      <tr>
-                      <td>Telat</td>
-                      <td><?php echo $data['telat']; ?> </td>
-                      </tr>
-                      <tr>
-                      <td>Tidak Hadir</td>
-                      <td><?php echo $data['tidak_hadir']; ?> </td>
-                      </tr>
+
+                      
                      
                       
                       <tr>
@@ -168,13 +140,18 @@
                       </tr>
 
                       <tr>
-                      <td>Tunjangan Jamsostek Tenaga Kerja  </td>
+                      <td width="250">Tunjangan Jamsostek Tenaga Kerja     </td>
                       <td>Rp. <?php echo number_format($data['tunjangan_jamsostek'],2,",",".");?></td>
                       </tr>
 
                       <tr>
                       <td>Uang Lembur </td>
                       <td>Rp. <?php echo number_format($data['uang_lembur'],2,",",".");?></td>
+                      </tr>
+
+                      <tr>
+                      <td> </td>
+                      <td>-----------------------------------</td>
                       </tr>
 
                       <tr>
@@ -190,6 +167,12 @@
                       <td>Potongan Jamsostek Tenaga Kerja </td>
                       <td>Rp. <?php echo number_format($data['pot_jamsostek'],2,",",".");?></td>
                       </tr>
+
+                      <tr>
+                      <td> </td>
+                      <td>-----------------------------------</td>
+                      </tr>
+
                       <tr>
                       <td>Gaji Netto </td>
                       <td>Rp. <?php echo number_format($data['gaji_netto'],2,",",".");?></td>
@@ -226,24 +209,43 @@
                       <td>Biaya Administrasi </td>
                       <td>Rp. <?php echo number_format($data['biaya_adm'],2,",",".");?></td>
                       </tr>
+                      
+
                       <tr>
-                      <td>Take Home Pay</td>
+                      <td> </td>
+                      <td>-----------------------------------</td>
+                      </tr>
+                      
+                      <tr>
+                      <td></td>
                       <td>Rp. <?php echo number_format($data['take_home_pay'],2,",",".");?></td>
                       </tr>
 
                       </table>
                       <br>
                       <table>
+                      <tr>
+                      <td></td>
+                      <td></td>
+                      <td>Tanggal <?php echo date('d F Y'); ?></td>
+                      </tr>
                           <tr>
                             <td width="200">Mengetahui</td>
                             <td width="200">Membuat</td>
-                            <td width="200">Menerima</td> 
+                            <td width="200">Tanda Tangan Penerima Uang</td> 
                             </tr>
                           <tr>
                             <td>Ketua</td>
                             <td>Admin</td>
                             <td></td>                            
                           </tr>
+
+                          <tr>
+                            <td>______________</td>
+                            <td>______________</td>
+                            <td>______________</td>                            
+                          </tr>
+
                           <tr>
                             <td>Yuhana N</td>
                             <td><?php //echo $_SESSION['fullname']; ?></td>
