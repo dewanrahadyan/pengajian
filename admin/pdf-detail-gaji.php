@@ -29,7 +29,7 @@
             
         </header>
 
-<img align="center" src="../img/logo.png">
+<img align="center" src="../img/logo.png" >
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
@@ -74,7 +74,7 @@
                                              WHERE kd_gaji='$_GET[kd_gaji]'");
             $data  = mysqli_fetch_array($query);
             ?>
-                      <table id="example" class="table table-hover table-bordered">
+                      <table id="example" class="table table-hover table-bordered" style="font-size: 8">
                       <tr>
                       <td ><B>BUKTI KAS KELUAR</B></td>
                       <td ></td>
@@ -140,7 +140,7 @@
                       </tr>
 
                       <tr>
-                      <td width="250">Tunjangan Jamsostek Tenaga Kerja     </td>
+                      <td width="57%">Tunjangan Jamsostek Tenaga Kerja     </td>
                       <td>Rp. <?php echo number_format($data['tunjangan_jamsostek'],2,",",".");?></td>
                       </tr>
 
@@ -223,16 +223,16 @@
 
                       </table>
                       <br>
-                      <table>
+                      <table id="example" class="table table-hover table-bordered" style="font-size: 8">
                       <tr>
                       <td></td>
                       <td></td>
                       <td>Tanggal <?php echo date('d F Y'); ?></td>
                       </tr>
                           <tr>
-                            <td width="200">Mengetahui</td>
-                            <td width="200">Membuat</td>
-                            <td width="200">Tanda Tangan Penerima Uang</td> 
+                            <td >Mengetahui</td>
+                            <td >Membuat</td>
+                            <td >Tanda Tangan Penerima Uang</td> 
                             </tr>
                           <tr>
                             <td>Ketua</td>
@@ -241,9 +241,9 @@
                           </tr>
 
                           <tr>
-                            <td>______________</td>
-                            <td>______________</td>
-                            <td>______________</td>                            
+                            <td><br><br>_____________ </td>
+                            <td><br><br>_____________ </td>
+                            <td><br><br>_____________ </td>                            
                           </tr>
 
                           <tr>
