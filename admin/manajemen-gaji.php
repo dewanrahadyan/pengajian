@@ -225,7 +225,7 @@ $_SESSION['start_time'] = time();
                       <td><center>
 
                       <?php 
-                      $input_terakhir="select gaji_bulan,gaji_tahun from gajian where nik = ".$data['nik'];
+                      $input_terakhir="select gaji_bulan,gaji_tahun from gajian where nik = ".$data['nik']." order by kd_gaji desc";
                       $tampil2=mysqli_query($koneksi, $input_terakhir) or die(mysqli_error());
                       $data2=mysqli_fetch_array($tampil2);
                       echo $data2['gaji_bulan']." ".$data2['gaji_tahun'];;
