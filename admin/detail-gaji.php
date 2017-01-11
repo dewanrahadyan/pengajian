@@ -326,9 +326,9 @@ $_SESSION['start_time'] = time();
                 
                       </table>
                       <div class="text-right">
-                   <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Save Gaji as PDF" href="print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-floppy-disk"></span></a> 
+                   <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Save Gaji as PDF" href="print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-floppy-disk"></span></a> 
 
-                   <a class="btn btn-sm btn-warning" data-placement="bottom" data-toggle="tooltip" title="Print Gaji" href="perintah-print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-print"></span></a> 
+                   <a class="btn btn-sm btn-success" data-placement="bottom" data-toggle="tooltip" title="Print Gaji" href="perintah-print-detail-gaji.php?hal=edit&kd=<?php echo $data['nik'];?>&kd_gaji=<?php echo $data['kd_gaji'];?>"><span class="glyphicon glyphicon-print"></span></a> 
 
 <a href="manajemen-gaji-karyawan.php?kd=<?php echo $_GET['kd']; ?>" class="btn btn-sm btn-warning">
                   Kembali <i class="fa fa-arrow-circle-right"></i></a>

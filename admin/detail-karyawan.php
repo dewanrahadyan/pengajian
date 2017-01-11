@@ -227,7 +227,7 @@ $_SESSION['start_time'] = time();
                       </tr>
                       </table>
                       <div class="text-right">
-                  <a href="karyawan.php" class="btn btn-sm btn-warning">Kembali <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="manajemen-gaji.php" class="btn btn-sm btn-warning">Kembali <i class="fa fa-arrow-circle-right"></i></a>
               
                 </div>
                   </div>
