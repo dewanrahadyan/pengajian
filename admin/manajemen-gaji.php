@@ -114,7 +114,7 @@ $_SESSION['start_time'] = time();
                     <div class="row">
                     
               <div class="col-lg-4">
-              <form action='manajemen-gaji.php' method="POST">
+              <form action='manajemen-gaji.php' method="GET">
           
 	       <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNik' placeholder='Cari berdasarkan Nik '  /> 
            <input type='text' class="form-control" style="margin-bottom: 4px;" name='qNama' placeholder='Cari  Nama '  />
@@ -135,6 +135,54 @@ $_SESSION['start_time'] = time();
               <option value="Lainnya">Lainnya</option>
             </select>
 
+
+
+
+                            
+                  
+                             
+
+
+                               <div class="row">
+                          <div class="col-lg-6">
+
+                              <select name="qBulan" class="form-control" >
+              <option value=NULL> -- Gaji Bulan -- </option>
+              <option value="Januari">Januari</option>
+                            <option value="Februari">Februari</option>
+                            <option value="Maret">Maret</option>
+                            <option value="April">April</option>
+                            <option value="Mei">Mei</option>
+                            <option value="Juni">Juni</option>
+                            <option value="Juli">Juli</option>
+                            <option value="Agustus">Agustus</option>
+                            <option value="September">September</option>
+                            <option value="Oktober">Oktober</option>
+                            <option value="November">November</option>
+                            <option value="Desember">Desember</option>
+              
+                </select>
+                </div>
+                   <div class="col-lg-6">
+               
+                            <select name="qTahun" class="form-control" >
+              <option value=NULL> -- Gaji Tahun -- </option>
+              <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2024</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                </select>
+                        
+                          </div>
+                          </div>
+<BR>
             <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='manajemen-gaji.php' class="btn btn-sm btn-success" >
 
            Refresh</i></a>
@@ -157,37 +205,48 @@ $_SESSION['start_time'] = time();
                    $cariNIK=NULL;
                    $cariNama=NULL;
                    $cariDepartemen=NULL;
+                   $cariBulan=NULL;
+                   $cariTahun=NULL;
                    $whereis=NULL;
 
                    
                     
-                    if((!empty($_POST["qNik"])) or (!empty($_POST["qNama"])) or (!empty($_POST["qDepartemen"])) )
+                    if((!empty($_GET["qNik"])) or (!empty($_GET["qNama"])) or (!empty($_GET["qDepartemen"]))     )
                     {
                         $whereis=" where ";
-                        $qNik=  $_POST['qNik'];
-                        $qNama= $_POST['qNama'];
-                        $qDepartemen= $_POST['qDepartemen'];
+                        $qNik=  $_GET['qNik'];
+                        $qNama= $_GET['qNama'];
+                        $qDepartemen= $_GET['qDepartemen'];
+                      
 
-                           if(!empty($_POST["qNik"]) )
+                           if(!empty($_GET["qNik"]) )
                              {
 
                               $cariNIK = "nik = '$qNik'";
                              }
-                           if(!empty($_POST["qNama"]) )
+                           if(!empty($_GET["qNama"]) )
                              {
                                   $hubung1 = "";
-                                  if(!empty($_POST["qNik"]) )
+                                  if(!empty($_GET["qNik"]) )
                                       {$hubung1 = "or";}
 
                                   $cariNama = " ".$hubung1." nama like '%$qNama%'";     
                              }
-                           if(!empty($_POST["qDepartemen"]) )
+                           if(!empty($_GET["qDepartemen"]) )
                              {
                                   $hubung2 = "";
-                                  if((!empty($_POST["qNik"]) )or(!empty($_POST["qNama"]) ))
+                                  if((!empty($_GET["qNik"]) )or(!empty($_GET["qNama"]) ))
                                       {$hubung2 = "or";}
                                   $cariDepartemen = " ".$hubung2." departemen like '%$qDepartemen%'";     
-                             }                                             
+                             }
+                          if(!empty($_GET["qBulan"]) )
+                             {
+                                  $hubung3 = "";
+                                  if((!empty($_GET["qNik"]) )or(!empty($_GET["qNama"]) ) or(!empty($_GET["qDepartemen"]) ))
+                                      {$hubung3 = "or";}
+                                  $cariBulan = " ".$hubung3." bulan like '%$qDepartemen%'";     
+                             }  
+
                     }
 
                  //  $caridepartemen = $_GET['caridepartemen'];
@@ -195,7 +254,7 @@ $_SESSION['start_time'] = time();
 	               //where nik like '%$qcari%'
 	               //or nama like '%$qcari%'  ";
                     
-                      $query1="select * from karyawan ".$whereis."  ".$cariNIK."  ".$cariNama." ".$cariDepartemen; 
+                      $query1="select * from karyawan   ".$whereis."  ".$cariNIK."  ".$cariNama." ".$cariDepartemen;
                   
                       $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                   ?>
@@ -216,29 +275,29 @@ $_SESSION['start_time'] = time();
                      while($data=mysqli_fetch_array($tampil))
                     { $no++; ?>
                     <tbody>
+                    <?php 
+
+                     
+
+                      $input_terakhir="select gaji_bulan,gaji_tahun from gajian where nik = ".$data['nik']." order by kd_gaji desc";
+                      $tampil2=mysqli_query($koneksi, $input_terakhir) or die(mysqli_error());
+                      $data2=mysqli_fetch_array($tampil2);
+
+                      if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))      )
+                      { 
+
+
+                          if( ($_GET["qBulan"] == $data2['gaji_bulan']) or ( $_GET["qTahun"] == $data2['gaji_tahun']  ))
+                        {
+                    ?>
                     <tr>
                       <td><center><?php echo $no; ?></center></td>
                       <td><center><?php echo $data['nik'];?></center></td>
 
                       <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
                       <td><center><?php echo $data['departemen']; ?></center></td>
-                      <td><center>
-
-                      <?php 
-                      $input_terakhir="select gaji_bulan,gaji_tahun from gajian where nik = ".$data['nik']." order by kd_gaji desc";
-                      $tampil2=mysqli_query($koneksi, $input_terakhir) or die(mysqli_error());
-                      $data2=mysqli_fetch_array($tampil2);
-                      echo $data2['gaji_bulan']." ".$data2['gaji_tahun'];;
-                      
-
-
-                      ?>
-                        
-
-                      </center></td>
-                      
-
-                      
+                      <td><center> <?php echo $data2['gaji_bulan']." ".$data2['gaji_tahun']; ?> </center></td>
+                       
                       <td><center>
                       <div id="thanks">
                       <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>
@@ -246,10 +305,39 @@ $_SESSION['start_time'] = time();
                       </center>
                       </td>
                     </tr>
+                    
+                    <?php 
+                    }
+                    else
+                    {}
+                    //penutup search tanggal tahun ke1 if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))      )
+
+                    }//penutup search tanggal tahun ke2  if( ($data2['gaji_bulan'] == $_GET["qBulan"])or ($data2['gaji_tahun'] == $_GET["qTulan"]) )
+                    else
+
+                    {?>
+
+<tr>
+                      <td><center><?php echo $no; ?></center></td>
+                      <td><center><?php echo $data['nik'];?></center></td>
+
+                      <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
+                      <td><center><?php echo $data['departemen']; ?></center></td>
+                      <td><center> <?php echo $data2['gaji_bulan']." ".$data2['gaji_tahun']; ?> </center></td>
+                       
+                      <td><center>
+                      <div id="thanks">
+                      <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>
+
+                      </center>
+                      </td>
+                    </tr>
+<?php
+                    }
+                    }
+                    ?>
                     </div>
-                 <?php   
-              } 
-              ?>
+            
                    </tbody>
                    </table>
                   <!-- </div>-->
