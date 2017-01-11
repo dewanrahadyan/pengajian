@@ -116,7 +116,53 @@ $_SESSION['start_time'] = time();
                     <div class="row">
                     
               <div class="col-lg-4">
-              <form action='karyawan.php' method="POST">
+              <form action='manajemen-gaji-karyawan.php' method="GET">
+
+
+              <div class="row">
+                          <div class="col-lg-6">
+
+                              <select name="qBulan" class="form-control" >
+              <option value=NULL> -- Gaji Bulan -- </option>
+              <option value="Januari">Januari</option>
+                            <option value="Februari">Februari</option>
+                            <option value="Maret">Maret</option>
+                            <option value="April">April</option>
+                            <option value="Mei">Mei</option>
+                            <option value="Juni">Juni</option>
+                            <option value="Juli">Juli</option>
+                            <option value="Agustus">Agustus</option>
+                            <option value="September">September</option>
+                            <option value="Oktober">Oktober</option>
+                            <option value="November">November</option>
+                            <option value="Desember">Desember</option>
+              
+                </select>
+                </div>
+                   <div class="col-lg-6">
+               
+                            <select name="qTahun" class="form-control" >
+              <option value=NULL> -- Gaji Tahun -- </option>
+              <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2024</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                </select>
+                        
+                          </div>
+                 </div>
+<BR>
+<input type="hidden" name="kd" value="<?php echo $_GET['kd']?>">
+            <input type='submit' value='Cari Data' class="btn btn-sm btn-primary" /> <a href='manajemen-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>' class="btn btn-sm btn-success" >
+
+           Refresh</i></a>
           
 	     
           	</div>
@@ -126,7 +172,7 @@ $_SESSION['start_time'] = time();
            <a href="input-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>"  class="btn btn-sm btn-warning"> 
                   Tambah Gaji  <i class="fa fa-arrow-circle-right"></i></a>
 
-                  <a href="manajemen-gaji.php" class="btn btn-sm btn-danger">Kembali </a>
+                  <a href="manajemen-gaji-karyawan.php" class="btn btn-sm btn-danger">Kembali </a>
               
                 </div>
                     <br />
@@ -146,9 +192,39 @@ $_SESSION['start_time'] = time();
                        <!-- <div class="table-responsive"> -->
                   
                   <?php
+                  $cariBulan=NULL;
+                   $cariTahun=NULL;
+                    if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))  )
+                    {
+                        $whereis=" where ";
+                        $qBulan=  $_GET['qBulan'];
+                        $qTahun= $_GET['qTahun'];
+                        
+                      
+
+                           if(!empty($_GET["qBulan"]) )
+                             {
+
+                              $cariBulan = "and gajian.gaji_bulan like '%$qBulan%'";
+                            
+                             }
+                           if(!empty($_GET["qTahun"]) )
+                             {
+                                  $hubung1 = "";
+                                  if(!empty($_GET["qBulan"]) )
+                                      {$hubung1 = "or";}
+
+                                  $cariTahun = " ".$hubung1." gajian.gaji_tahun like '%$qTahun%'";   
+                                    
+                             }
+                            
+
+                    }
                
                     
-                      $query1="SELECT * FROM gajian INNER JOIN karyawan ON gajian.nik = karyawan.nik WHERE gajian.nik = ".$_GET['kd']." order by kd_gaji asc"; 
+                      $query1="SELECT * FROM gajian INNER JOIN karyawan ON gajian.nik = karyawan.nik WHERE gajian.nik = ".$_GET['kd']." ".$cariBulan." ".$cariTahun."  order by kd_gaji asc"; 
+
+
                   
                       $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
                   ?>
@@ -159,19 +235,19 @@ $_SESSION['start_time'] = time();
 
 
 
-<th><center>Kode Gaji</center></th>
-<th><center>Gaji Bulan</center></th>
+                  <th><center>Kode Gaji</center></th>
+                  <th><center>Gaji Bulan</center></th>
 
 
-<th><center>Gaji Pokok</center></th>
-<th><center>Tunjangan Jabatan</center></th>
-<th><center>Premi Hadir</center></th>
-<th><center>Tunjangan Konsumsi</center></th>
+                  <th><center>Gaji Pokok</center></th>
+                  <th><center>Tunjangan Jabatan</center></th>
+                  <th><center>Premi Hadir</center></th>
+                  <th><center>Tunjangan Konsumsi</center></th>
 
-<th><center>Tunjangan Jamsostek Tenaga Kerja</center></th>
-<th><center>Uang Lembur</center></th>
+                  <th><center>Tunjangan Jamsostek Tenaga Kerja</center></th>
+                  <th><center>Uang Lembur</center></th>
 
-<th><center>Take Home Pay</center></th>
+                  <th><center>Take Home Pay</center></th>
 
 
 
