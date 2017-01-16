@@ -172,7 +172,7 @@ $_SESSION['start_time'] = time();
            <a href="input-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>"  class="btn btn-sm btn-warning"> 
                   Tambah Gaji  <i class="fa fa-arrow-circle-right"></i></a>
 
-                  <a href="manajemen-gaji-karyawan.php" class="btn btn-sm btn-danger">Kembali </a>
+                  <a href="manajemen-gaji.php" class="btn btn-sm btn-danger">Kembali </a>
               
                 </div>
                     <br />
@@ -213,6 +213,8 @@ $_SESSION['start_time'] = time();
                                   $hubung1 = "";
                                   if(!empty($_GET["qBulan"]) )
                                       {$hubung1 = "or";}
+                                    else
+                                      {$hubung1 = "and";}
 
                                   $cariTahun = " ".$hubung1." gajian.gaji_tahun like '%$qTahun%'";   
                                     

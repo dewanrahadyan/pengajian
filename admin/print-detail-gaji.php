@@ -50,9 +50,16 @@ $content = file_get_contents($url.'/pengajian/admin/pdf-detail-gaji.php?hal=edit
 
 //get file content after the script is server-side interpreted
 //$html = file_get_contents( $fileUrl ) ;
+include "../conn.php";
 
 
+ $query1="SELECT * FROM gajian inner join karyawan on gajian.nik = karyawan.nik WHERE kd_gaji = ".$_GET['kd_gaji']; 
 
+
+                  
+                      $tampil=mysqli_query($koneksi, $query1) or die(mysqli_error());
+                      $data  = mysqli_fetch_array($tampil);
+//echo $data["nama"];
 
  
 $dompdf = new DOMPDF();
@@ -61,7 +68,7 @@ $dompdf->load_html($content);
 $dompdf->set_paper("A4", "portrait");
 $dompdf->render();
 
-$dompdf->stream('payroll.pdf');
+$dompdf->stream('Payroll_'.$data["nama"].'.pdf');
 die();
  
 ?>
