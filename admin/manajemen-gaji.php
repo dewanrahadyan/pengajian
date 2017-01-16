@@ -147,8 +147,8 @@ $_SESSION['start_time'] = time();
                           <div class="col-lg-6">
 
                               <select name="qBulan" class="form-control" >
-              <option value=NULL> -- Gaji Bulan -- </option>
-              <option value="Januari">Januari</option>
+              <option  value=""> -- Gaji Bulan -- </option>
+                            <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
                             <option value="Maret">Maret</option>
                             <option value="April">April</option>
@@ -166,8 +166,8 @@ $_SESSION['start_time'] = time();
                    <div class="col-lg-6">
                
                             <select name="qTahun" class="form-control" >
-              <option value=NULL> -- Gaji Tahun -- </option>
-              <option value="2016">2016</option>
+              <option value=""> -- Gaji Tahun -- </option>
+                            <option value="2016">2016</option>
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
@@ -239,13 +239,7 @@ $_SESSION['start_time'] = time();
                                       {$hubung2 = "or";}
                                   $cariDepartemen = " ".$hubung2." departemen like '%$qDepartemen%'";     
                              }
-                          if(!empty($_GET["qBulan"]) )
-                             {
-                                  $hubung3 = "";
-                                  if((!empty($_GET["qNik"]) )or(!empty($_GET["qNama"]) ) or(!empty($_GET["qDepartemen"]) ))
-                                      {$hubung3 = "or";}
-                                  $cariBulan = " ".$hubung3." bulan like '%$qDepartemen%'";     
-                             }  
+                           
 
                     }
 
@@ -277,17 +271,22 @@ $_SESSION['start_time'] = time();
                     <tbody>
                     <?php 
 
+                    //echo $data['nama'];
+                    //echo $_GET["qBulan"];
+                    //echo $_GET["qTahun"];
+
+
                      
 
                       $input_terakhir="select gaji_bulan,gaji_tahun from gajian where nik = ".$data['nik']." order by kd_gaji desc";
                       $tampil2=mysqli_query($koneksi, $input_terakhir) or die(mysqli_error());
                       $data2=mysqli_fetch_array($tampil2);
 
-                      if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))      )
+                      if((!empty($_GET["qBulan"])) and (!empty($_GET["qTahun"]))      )
                       { 
 
 
-                          if( ($_GET["qBulan"] == $data2['gaji_bulan']) or ( $_GET["qTahun"] == $data2['gaji_tahun']  ))
+                          if((( ($_GET["qBulan"] == $data2['gaji_bulan']) and ( $_GET["qTahun"] == $data2['gaji_tahun']  )) and (( $data2['gaji_bulan'] !=  "" ) or  ( ( $data2['gaji_tahun'] !=  "" )  ))))
                         {
                     ?>
                     <tr>
@@ -312,7 +311,76 @@ $_SESSION['start_time'] = time();
                     {}
                     //penutup search tanggal tahun ke1 if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))      )
 
-                    }//penutup search tanggal tahun ke2  if( ($data2['gaji_bulan'] == $_GET["qBulan"])or ($data2['gaji_tahun'] == $_GET["qTulan"]) )
+                    }
+                    else
+                      if((!empty($_GET["qBulan"]))       )
+                      { 
+
+
+                          if((( ($_GET["qBulan"] == $data2['gaji_bulan']) ) and (( $data2['gaji_bulan'] !=  "" ) or  ( ( $data2['gaji_tahun'] !=  "" )  ))))
+                        {
+                    ?>
+                    <tr>
+                      <td><center><?php echo $no; ?></center></td>
+                      <td><center><?php echo $data['nik'];?></center></td>
+
+                      <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
+                      <td><center><?php echo $data['departemen']; ?></center></td>
+                      <td><center> <?php echo $data2['gaji_bulan']." ".$data2['gaji_tahun']; ?> </center></td>
+                       
+                      <td><center>
+                      <div id="thanks">
+                      <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>
+
+                      </center>
+                      </td>
+                    </tr>
+                    
+                    <?php 
+                    }
+                    else
+                    {}
+                    //penutup search tanggal tahun ke1 if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))      )
+
+                    }
+
+                    else
+                      if((!empty($_GET["qTahun"]))       )
+                      { 
+
+
+                          if((( ($_GET["qTahun"] == $data2['gaji_tahun']) ) and (( $data2['gaji_bulan'] !=  "" ) or  ( ( $data2['gaji_tahun'] !=  "" )  ))))
+                        {
+                    ?>
+                    <tr>
+                      <td><center><?php echo $no; ?></center></td>
+                      <td><center><?php echo $data['nik'];?></center></td>
+
+                      <td><a href="detail-karyawan.php?hal=edit&kd=<?php echo $data['nik'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['nama'];?></td>
+                      <td><center><?php echo $data['departemen']; ?></center></td>
+                      <td><center> <?php echo $data2['gaji_bulan']." ".$data2['gaji_tahun']; ?> </center></td>
+                       
+                      <td><center>
+                      <div id="thanks">
+                      <a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Manajemen Gaji Karyawan <?php echo $data['nama'];?>" href="manajemen-gaji-karyawan.php?&kd=<?php echo $data['nik'];?>">Show <span class="glyphicon glyphicon-edit"></span></a>
+
+                      </center>
+                      </td>
+                    </tr>
+                    
+                    <?php 
+                    }
+                    else
+                    {}
+                    //penutup search tanggal tahun ke1 if((!empty($_GET["qBulan"])) or (!empty($_GET["qTahun"]))      )
+
+                    }
+
+
+
+
+
+                    //penutup search tanggal tahun ke2  if( ($data2['gaji_bulan'] == $_GET["qBulan"])or ($data2['gaji_tahun'] == $_GET["qTulan"]) )
                     else
 
                     {?>

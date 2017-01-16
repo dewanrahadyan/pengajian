@@ -123,7 +123,7 @@ $_SESSION['start_time'] = time();
                           <div class="col-lg-6">
 
                               <select name="qBulan" class="form-control" >
-              <option value=NULL> -- Gaji Bulan -- </option>
+              <option value=""> -- Gaji Bulan -- </option>
               <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
                             <option value="Maret">Maret</option>
@@ -142,7 +142,7 @@ $_SESSION['start_time'] = time();
                    <div class="col-lg-6">
                
                             <select name="qTahun" class="form-control" >
-              <option value=NULL> -- Gaji Tahun -- </option>
+              <option value=""> -- Gaji Tahun -- </option>
               <option value="2016">2016</option>
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
@@ -172,7 +172,7 @@ $_SESSION['start_time'] = time();
            <a href="input-gaji-karyawan.php?&kd=<?php echo $_GET['kd'];?>"  class="btn btn-sm btn-warning"> 
                   Tambah Gaji  <i class="fa fa-arrow-circle-right"></i></a>
 
-                  <a href="manajemen-gaji-karyawan.php" class="btn btn-sm btn-danger">Kembali </a>
+                  <a href="manajemen-gaji.php" class="btn btn-sm btn-danger">Kembali </a>
               
                 </div>
                     <br />
@@ -211,8 +211,10 @@ $_SESSION['start_time'] = time();
                            if(!empty($_GET["qTahun"]) )
                              {
                                   $hubung1 = "";
-                                  if(!empty($_GET["qBulan"]) )
-                                      {$hubung1 = "or";}
+                                  //if(!empty($_GET["qBulan"]) )
+                                      //{
+                                        $hubung1 = "and";
+                                        //}
 
                                   $cariTahun = " ".$hubung1." gajian.gaji_tahun like '%$qTahun%'";   
                                     
@@ -223,6 +225,8 @@ $_SESSION['start_time'] = time();
                
                     
                       $query1="SELECT * FROM gajian INNER JOIN karyawan ON gajian.nik = karyawan.nik WHERE gajian.nik = ".$_GET['kd']." ".$cariBulan." ".$cariTahun."  order by kd_gaji asc"; 
+
+                     // echo $query1; // Untuk Cek query search
 
 
                   
