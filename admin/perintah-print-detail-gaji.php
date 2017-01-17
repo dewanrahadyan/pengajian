@@ -229,4 +229,5 @@
 
 <script>
 window.print();
+
 </script>
