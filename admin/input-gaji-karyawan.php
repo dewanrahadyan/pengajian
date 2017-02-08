@@ -465,6 +465,8 @@ $_SESSION['start_time'] = time();
                                 </div>
                           </div>
 
+                          <div style="width:1000px; height:2px; background-color:#FF0000;"></div><br>
+
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gaji Netto</label>
                                 <div class="col-sm-3">
@@ -472,7 +474,7 @@ $_SESSION['start_time'] = time();
                                 </div>
                           </div>
 
-                          <div style="width:1000px; height:2px; background-color:#FF0000;"></div><br>
+                          
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Telat</label>

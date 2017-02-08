@@ -412,6 +412,8 @@ $_SESSION['start_time'] = time();
                                   <input name="pot_jamsostek" type="number" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" id="pot_jamsostek" value="<?php echo $row['pot_jamsostek']; ?>" class="form-control" autocomplete="off" placeholder="" required="required"/>
                                 </div>
                           </div>
+                          
+                          <div style="width:1000px; height:2px; background-color:#FF0000;"></div><br>
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Gaji Netto</label>
@@ -420,7 +422,7 @@ $_SESSION['start_time'] = time();
                                 </div>
                           </div>
 
-                          <div style="width:1000px; height:2px; background-color:#FF0000;"></div><br>
+                          
 
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Potongan Telat</label>
