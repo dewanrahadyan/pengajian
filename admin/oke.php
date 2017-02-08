@@ -115,7 +115,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -225,7 +225,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -336,7 +336,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -447,7 +447,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -558,7 +558,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -669,7 +669,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -780,7 +780,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -891,7 +891,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -1002,7 +1002,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -1114,7 +1114,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
@@ -1226,7 +1226,7 @@
                     <td><center><?php echo $data['nik'];?></center></td>
                     <td></span> <?php echo $data['nama'];?></td>
                     <td><?php echo $data['alamat']; ?></td>
-                    <td><center><?php echo $data['gender'];?></center></td>
+                    <td><center><?php if($data['gender']==0){echo "Laki-laki";}else{echo "Perempuan";} ?></center></td>
                     <td><center><?php echo $data['no_hp']; ?></center></td>
                     <td><center><?php echo $data['departemen']; ?></center></td>
                     <td><center><?php
